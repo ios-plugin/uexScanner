@@ -93,19 +93,9 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
 
     [super viewWillAppear:animated];
     self.view.backgroundColor=[UIColor whiteColor];
-    ZXDecodeHints *hints = [ZXDecodeHints hints];
-    switch (self.charset) {
-        case uexScannerEncodingCharsetUTF8: {
-            break;
-        }
-        case uexScannerEncodingCharsetGBK: {
-            NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-            hints.encoding = gbkEncoding;
-            break;
-        }
-    }
+
     
-    self.ZXingCapture.hints = hints;
+    self.ZXingCapture.hints = [self decodeHints];
     self.ZXingCapture.delegate = self;
     self.ZXingCapture.layer.frame = self.view.frame;
     [self.view.layer addSublayer:self.ZXingCapture.layer];
@@ -386,6 +376,24 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
 
 }
 
+- (ZXDecodeHints *)decodeHints{
+    ZXDecodeHints *hints = [ZXDecodeHints hints];
+    hints.tryHarder = YES;
+
+    switch (self.charset) {
+        case uexScannerEncodingCharsetUTF8: {
+            break;
+        }
+        case uexScannerEncodingCharsetGBK: {
+            NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+            hints.encoding = gbkEncoding;
+            break;
+        }
+    }
+    
+    return hints;
+}
+
 
 #pragma mark - UIImagePickerController Delegate
 
@@ -404,11 +412,10 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
 
     NSError *error = nil;
     
-    ZXDecodeHints *hints = [ZXDecodeHints hints];
-    hints.tryHarder=YES;
+
     
     ZXMultiFormatReader *reader = [ZXMultiFormatReader reader];
-    ZXResult *result = [reader decode:bitmap hints:hints error:&error];
+    ZXResult *result = [reader decode:bitmap hints:[self decodeHints] error:&error];
     if (result) {
         [self dismissWithResult:result.text codeType:[self barcodeFormatToString:result.barcodeFormat] isCancelled:NO];
     }else{
