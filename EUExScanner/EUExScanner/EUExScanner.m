@@ -19,6 +19,9 @@
 
 @implementation EUExScanner
 
+
+
+
 - (void)open:(NSMutableArray *)inArguments {
 
     UIStatusBarStyle initialStatusBarStyle =[UIApplication sharedApplication].statusBarStyle;
@@ -27,7 +30,7 @@
         if(isCancelled){
             return;
         }
-        
+
         NSMutableDictionary *result=[NSMutableDictionary dictionary];
         [result setValue:scanResult forKey:@"code"];
         [result setValue:codeType forKey:@"type"];
@@ -45,6 +48,12 @@
     }
     if(UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(@"pickBgImg")){
         scanner.backgroundScanImage=[self getImageByPath:self.jsonDict[@"pickBgImg"]];
+    }
+    if (UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(@"charset")){
+        NSString *charsetStr = [self.jsonDict[@"charset"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].lowercaseString;
+        if ([charsetStr isEqual:@"gbk"]) {
+            scanner.charset = uexScannerEncodingCharsetGBK;
+        }
     }
     
     

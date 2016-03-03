@@ -23,6 +23,12 @@
  
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger,uexScannerEncodingCharset){
+    uexScannerEncodingCharsetUTF8 = 0,
+    uexScannerEncodingCharsetGBK,
+};
+
+
 typedef void (^uexScannerCompletionBlock)(NSString *scanResult,NSString *codeType,BOOL isCancelled);
 
 
@@ -32,6 +38,7 @@ typedef void (^uexScannerCompletionBlock)(NSString *scanResult,NSString *codeTyp
 @property (nonatomic,strong)NSString *scannerTitle;
 @property (nonatomic,strong)NSString *scannerPrompt;
 @property (nonatomic,strong)uexScannerCompletionBlock completion;
+@property (nonatomic,assign)uexScannerEncodingCharset charset;
 
 
 - (instancetype)initWithCompletion:(uexScannerCompletionBlock)completion;

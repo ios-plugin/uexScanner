@@ -31,7 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		428268301C280A3A00A10A68 /* PBXContainerItemProxy */ = {
+		42B6883B1C4CAF9E0076EA30 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F728A2481AB7FC27003FDDA4 /* Project object */;
 			proxyType = 1;
@@ -253,7 +253,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				428268311C280A3A00A10A68 /* PBXTargetDependency */,
+				42B6883C1C4CAF9E0076EA30 /* PBXTargetDependency */,
 			);
 			name = EUExScanner;
 			productName = EUExScanner;
@@ -335,10 +335,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		428268311C280A3A00A10A68 /* PBXTargetDependency */ = {
+		42B6883C1C4CAF9E0076EA30 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 428268291C280A3100A10A68 /* uexScannerBundle */;
-			targetProxy = 428268301C280A3A00A10A68 /* PBXContainerItemProxy */;
+			targetProxy = 42B6883B1C4CAF9E0076EA30 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <uexplugins>
     <plugin
-        uexName="uexScanner" version="3.1.4" build="4">
-        <info>4:重构:改用ZXing识别二维码;添加IDE支持</info>
+        uexName="uexScanner" version="3.1.5" build="5">
+        <info>5:添加可选参数charset，支持GBK编码的二维码</info>
+        <build>4:重构:改用ZXing识别二维码;添加IDE支持</build>
         <build>3:修改二维码扫描UI图片</build>
         <build>2:修改资源图片</build>
         <build>1:UI适配iOS7以下系统</build>

@@ -65,16 +65,18 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
 }
 
 - (void)initializer{
-    _scannerTitle=@"扫一扫";
-    _scannerPrompt=@"对准二维码/条形码,即可自动扫描";
-    _backgroundScanImage=[self bundleImageForName:@"pick_bg"];
-    _lineImage=[self bundleImageForName:@"line"];
-    ZXCapture *capture=[[ZXCapture alloc] init];
+    _scannerTitle = @"扫一扫";
+    _scannerPrompt = @"对准二维码/条形码,即可自动扫描";
+    _backgroundScanImage = [self bundleImageForName:@"pick_bg"];
+    _lineImage = [self bundleImageForName:@"line"];
+    ZXCapture *capture = [[ZXCapture alloc] init];
     capture.camera = capture.back;
     capture.focusMode = AVCaptureFocusModeContinuousAutoFocus;
     capture.rotation = 90.0f;
     capture.layer.frame = self.view.bounds;
-    self.ZXingCapture=capture;
+    
+
+    self.ZXingCapture = capture;
 
     
 }
@@ -91,6 +93,19 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
 
     [super viewWillAppear:animated];
     self.view.backgroundColor=[UIColor whiteColor];
+    ZXDecodeHints *hints = [ZXDecodeHints hints];
+    switch (self.charset) {
+        case uexScannerEncodingCharsetUTF8: {
+            break;
+        }
+        case uexScannerEncodingCharsetGBK: {
+            NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+            hints.encoding = gbkEncoding;
+            break;
+        }
+    }
+    
+    self.ZXingCapture.hints = hints;
     self.ZXingCapture.delegate = self;
     self.ZXingCapture.layer.frame = self.view.frame;
     [self.view.layer addSublayer:self.ZXingCapture.layer];
@@ -111,7 +126,7 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
 
 - (void)dealloc{
     [_ZXingCapture.layer removeFromSuperlayer];
-    _ZXingCapture=nil;
+    _ZXingCapture = nil;
 }
 
 #pragma mark - StatusBarStyle
@@ -132,15 +147,15 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
 
 
 - (void)addShadow{
-    CALayer *shadowLayer=[CALayer layer];
-    shadowLayer.frame=self.view.frame;
-    shadowLayer.backgroundColor=[UIColor blackColor].CGColor;
-    shadowLayer.opacity=0.7;
+    CALayer *shadowLayer = [CALayer layer];
+    shadowLayer.frame = self.view.frame;
+    shadowLayer.backgroundColor = [UIColor blackColor].CGColor;
+    shadowLayer.opacity = 0.7;
     [self.view.layer addSublayer:shadowLayer];
-    CAShapeLayer *maskLayer=[CAShapeLayer layer];
-    UIBezierPath *maskPath=[UIBezierPath bezierPathWithRect:[self captureRect]];
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRect:[self captureRect]];
     [maskPath appendPath:[UIBezierPath bezierPathWithRect:self.view.frame]];
-    maskLayer.path=maskPath.CGPath;
+    maskLayer.path = maskPath.CGPath;
     maskLayer.fillRule=kCAFillRuleEvenOdd;
     shadowLayer.mask=maskLayer;
 }
