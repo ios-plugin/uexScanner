@@ -28,14 +28,16 @@
 
 @end
 
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
-#define SCREEN_HEIGHT  ([UIScreen mainScreen].bounds.size.height)
+//#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+//#define SCREEN_HEIGHT  ([UIScreen mainScreen].bounds.size.height)
+#define SCREEN_WIDTH (self.view.bounds.size.width)
+#define SCREEN_HEIGHT  (self.view.bounds.size.height)
 
 
-static CGFloat kUexScannerTopToolbarHeitght                 = 60;
-static CGFloat kUexScannerBottomToolbarHeitght              = 60;
-static CGFloat kUexScannerCaptureWidth                      = 240;
-static CGFloat kUexScannerCaptureHeight                     = 240;
+static CGFloat kUexScannerTopToolbarHeitght                 = 50;
+static CGFloat kUexScannerBottomToolbarHeitght              = 50;
+static CGFloat kUexScannerCaptureWidth                      = 220;
+static CGFloat kUexScannerCaptureHeight                     = 220;
 static CGFloat kUexScannerPromptVerticalDistanceFromCapture = 20;
 static CGFloat kUexScannerPromptMaxWidth                    = 300;
 
@@ -93,7 +95,12 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
 
     [super viewWillAppear:animated];
     self.view.backgroundColor=[UIColor whiteColor];
-
+    
+    //适配屏幕小一点的设备
+    if(SCREEN_HEIGHT<375 || SCREEN_WIDTH<375){
+        kUexScannerCaptureWidth=180;
+        kUexScannerCaptureHeight=180;
+    }
     
     self.ZXingCapture.hints = [self decodeHints];
     self.ZXingCapture.delegate = self;
@@ -109,9 +116,9 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
     
 
 
-    CGAffineTransform captureSizeTransform = CGAffineTransformMakeScale(320 / self.view.frame.size.width, 480 / self.view.frame.size.height);
-    self.ZXingCapture.scanRect = CGRectApplyAffineTransform([self captureRect], captureSizeTransform);
-
+//    CGAffineTransform captureSizeTransform = CGAffineTransformMakeScale(320 / self.view.frame.size.width, 480 / self.view.frame.size.height);
+//    self.ZXingCapture.scanRect = CGRectApplyAffineTransform([self captureRect], captureSizeTransform);
+    [self applyOrientation];
 }
 
 - (void)dealloc{
@@ -132,6 +139,19 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
     return toInterfaceOrientation == UIInterfaceOrientationPortrait;
 }
 
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+    [self applyOrientation];
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context)
+     {
+         [self applyOrientation];
+     }];
+}
 
 #pragma mark - Scanner UI
 
@@ -171,7 +191,6 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
     move.removedOnCompletion=NO;
     [captureView addSubview:lineView];
     [lineView.layer addAnimation:move forKey:@"move"];
-    
     
     //这个动画有必要么？
     /*
@@ -430,4 +449,84 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
         }];
     });
 }
+
+#pragma mark - Private
+- (void)applyOrientation {
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    float scanRectRotation;
+    float captureRotation;
+    
+    switch (orientation) {
+        case UIInterfaceOrientationPortrait:
+            captureRotation = 0;
+            scanRectRotation = 90;
+            break;
+        case UIInterfaceOrientationLandscapeLeft:
+            captureRotation = 90;
+            scanRectRotation = 180;
+            break;
+        case UIInterfaceOrientationLandscapeRight:
+            captureRotation = 270;
+            scanRectRotation = 0;
+            break;
+        case UIInterfaceOrientationPortraitUpsideDown:
+            captureRotation = 180;
+            scanRectRotation = 270;
+            break;
+        default:
+            captureRotation = 0;
+            scanRectRotation = 90;
+            break;
+    }
+    [self applyRectOfInterest:orientation];
+    CGAffineTransform transform = CGAffineTransformMakeRotation((CGFloat) (captureRotation / 180 * M_PI));
+    [self.ZXingCapture setTransform:transform];
+    [self.ZXingCapture setRotation:scanRectRotation];
+    self.ZXingCapture.layer.frame = self.view.frame;
+}
+
+
+- (void)applyRectOfInterest:(UIInterfaceOrientation)orientation {
+    CGFloat scaleVideo, scaleVideoX, scaleVideoY;
+    CGFloat videoSizeX, videoSizeY;
+    CGRect transformedVideoRect = self.view.frame;
+    if([self.ZXingCapture.sessionPreset isEqualToString:AVCaptureSessionPreset1920x1080]) {
+        videoSizeX = 1080;
+        videoSizeY = 1920;
+    }
+    else {
+        videoSizeX = 720;
+        videoSizeY = 1280;
+    }
+    if(UIInterfaceOrientationIsPortrait(orientation)) {
+        scaleVideoX = self.view.frame.size.width / videoSizeX;
+        scaleVideoY = self.view.frame.size.height / videoSizeY;
+        scaleVideo = MAX(scaleVideoX, scaleVideoY);
+        if(scaleVideoX > scaleVideoY) {
+            transformedVideoRect.origin.y += (scaleVideo * videoSizeY - self.view.frame.size.height) / 2;
+        } else {
+            transformedVideoRect.origin.x += (scaleVideo * videoSizeX - self.view.frame.size.width) / 2;
+        }
+    } else {
+        scaleVideoX = self.view.frame.size.width / videoSizeY;
+        scaleVideoY = self.view.frame.size.height / videoSizeX;
+        scaleVideo = MAX(scaleVideoX, scaleVideoY);
+        if(scaleVideoX > scaleVideoY) {
+            transformedVideoRect.origin.y += (scaleVideo * videoSizeX - self.view.frame.size.height) / 2;
+        } else {
+            transformedVideoRect.origin.x += (scaleVideo * videoSizeY - self.view.frame.size.width) / 2;
+        }
+    }
+    CGAffineTransform captureSizeTransform = CGAffineTransformMakeScale(1/scaleVideo, 1/scaleVideo);
+    self.ZXingCapture.scanRect = CGRectApplyAffineTransform(transformedVideoRect, captureSizeTransform);
+}
+
+
+#pragma mark -不支持转屏
+- (BOOL)shouldAutorotate{
+    return NO;
+}
+//- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+//    return UIInterfaceOrientationMaskPortrait;
+//}
 @end
