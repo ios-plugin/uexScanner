@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1871512F3383F950B6485EF1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 382F8DA7DFC77C81FBE03D2A /* libz.tbd */; };
 		2F828F203873DB6F2B7DA295 /* CFNetWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A99AAECB80E9D5D13718B0C /* CFNetWork.framework */; };
+		3C07055D1CE4183700BC0383 /* uexAVCaptureOutputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C07055C1CE4183700BC0383 /* uexAVCaptureOutputViewController.m */; };
 		3E6E58B1A964640AE0F0041C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1844300FB9C648B4DD2725CE /* libc++.tbd */; };
 		3EF747B2AD249870B94E25BD /* uexScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0042A9EE624A761479C20111 /* uexScanner.bundle */; };
 		4282684A1C28E59300A10A68 /* uexZXingScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 428268491C28E59300A10A68 /* uexZXingScannerViewController.m */; };
@@ -58,6 +59,8 @@
 		16309D1CFC9B4ED34D0776DA /* MobileCoreServices.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		1844300FB9C648B4DD2725CE /* libc++.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		382F8DA7DFC77C81FBE03D2A /* libz.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		3C07055B1CE4183700BC0383 /* uexAVCaptureOutputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexAVCaptureOutputViewController.h; sourceTree = "<group>"; };
+		3C07055C1CE4183700BC0383 /* uexAVCaptureOutputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexAVCaptureOutputViewController.m; sourceTree = "<group>"; };
 		4282682A1C280A3100A10A68 /* uexScanner.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uexScanner.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		428268321C280B7B00A10A68 /* EUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUtility.h; sourceTree = "<group>"; };
 		428268461C28E52800A10A68 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 		428268471C28E59300A10A68 /* sourceCode */ = {
 			isa = PBXGroup;
 			children = (
+				3C07055B1CE4183700BC0383 /* uexAVCaptureOutputViewController.h */,
+				3C07055C1CE4183700BC0383 /* uexAVCaptureOutputViewController.m */,
 				428268481C28E59300A10A68 /* uexZXingScannerViewController.h */,
 				428268491C28E59300A10A68 /* uexZXingScannerViewController.m */,
 			);
@@ -395,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F728A2AE1AB80084003FDDA4 /* EUExScanner.m in Sources */,
+				3C07055D1CE4183700BC0383 /* uexAVCaptureOutputViewController.m in Sources */,
 				4282684A1C28E59300A10A68 /* uexZXingScannerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

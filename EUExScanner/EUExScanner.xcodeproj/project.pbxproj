@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C6F33081CE315B20079BC1C /* uexAVCaptureOutputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6F33071CE315B20079BC1C /* uexAVCaptureOutputViewController.m */; };
 		4282684A1C28E59300A10A68 /* uexZXingScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 428268491C28E59300A10A68 /* uexZXingScannerViewController.m */; };
 		428268571C28E8BE00A10A68 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 4282684C1C28E8BE00A10A68 /* down.png */; };
 		428268581C28E8BE00A10A68 /* line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4282684D1C28E8BE00A10A68 /* line@2x.png */; };
@@ -54,6 +55,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3C6F33061CE315B10079BC1C /* uexAVCaptureOutputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexAVCaptureOutputViewController.h; sourceTree = "<group>"; };
+		3C6F33071CE315B20079BC1C /* uexAVCaptureOutputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexAVCaptureOutputViewController.m; sourceTree = "<group>"; };
 		4282682A1C280A3100A10A68 /* uexScanner.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uexScanner.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		428268321C280B7B00A10A68 /* EUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUtility.h; sourceTree = "<group>"; };
 		428268461C28E52800A10A68 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -139,6 +142,8 @@
 			children = (
 				428268481C28E59300A10A68 /* uexZXingScannerViewController.h */,
 				428268491C28E59300A10A68 /* uexZXingScannerViewController.m */,
+				3C6F33061CE315B10079BC1C /* uexAVCaptureOutputViewController.h */,
+				3C6F33071CE315B20079BC1C /* uexAVCaptureOutputViewController.m */,
 			);
 			path = sourceCode;
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F728A2AE1AB80084003FDDA4 /* EUExScanner.m in Sources */,
+				3C6F33081CE315B20079BC1C /* uexAVCaptureOutputViewController.m in Sources */,
 				4282684A1C28E59300A10A68 /* uexZXingScannerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,7 @@
 //
 
 #import "EUExScanner.h"
+#import "uexAVCaptureOutputViewController.h"
 #import "uexZXingScannerViewController.h"
 #import "JSON.h"
 
@@ -25,39 +26,82 @@
 - (void)open:(NSMutableArray *)inArguments {
 
     UIStatusBarStyle initialStatusBarStyle =[UIApplication sharedApplication].statusBarStyle;
-    uexZXingScannerViewController *scanner=[[uexZXingScannerViewController alloc]initWithCompletion:^(NSString *scanResult, NSString *codeType, BOOL isCancelled) {
-        [[UIApplication sharedApplication]setStatusBarStyle:initialStatusBarStyle];
-        if(isCancelled){
-            return;
-        }
-
-        NSMutableDictionary *result=[NSMutableDictionary dictionary];
-        [result setValue:scanResult forKey:@"code"];
-        [result setValue:codeType forKey:@"type"];
-        NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(0,1,'%@');}",[result JSONFragment]];
-        [EUtility brwView:self.meBrwView evaluateScript:jsonString];
-    }];
-    if(UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(@"title")){
+     float phoneVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if(phoneVersion<7.0){
+        uexZXingScannerViewController *scanner=[[uexZXingScannerViewController alloc]initWithCompletion:^(NSString *scanResult, NSString *codeType, BOOL isCancelled) {
+            [[UIApplication sharedApplication]setStatusBarStyle:initialStatusBarStyle];
+            if(isCancelled){
+                return;
+            }
+            
+            NSMutableDictionary *result=[NSMutableDictionary dictionary];
+            [result setValue:scanResult forKey:@"code"];
+            [result setValue:codeType forKey:@"type"];
+            NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(0,1,'%@');}",[result JSONFragment]];
+            [EUtility brwView:self.meBrwView evaluateScript:jsonString];
+        }];
+        
+        
+        if(UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(@"title")){
             scanner.scannerTitle=self.jsonDict[@"title"];
-    }
-    if(UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(@"tipLabel") ){
-        scanner.scannerPrompt=self.jsonDict[@"tipLabel"];
-    }
-    if(UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(@"lineImg")){
-        scanner.lineImage=[self getImageByPath:self.jsonDict[@"lineImg"]];
-    }
-    if(UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(@"pickBgImg")){
-        scanner.backgroundScanImage=[self getImageByPath:self.jsonDict[@"pickBgImg"]];
-    }
-    if (UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(@"charset")){
-        NSString *charsetStr = [self.jsonDict[@"charset"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].lowercaseString;
-        if ([charsetStr isEqual:@"gbk"]) {
-            scanner.charset = uexScannerEncodingCharsetGBK;
         }
+        if(UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(@"tipLabel") ){
+            scanner.scannerPrompt=self.jsonDict[@"tipLabel"];
+        }
+        if(UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(@"lineImg")){
+            scanner.lineImage=[self getImageByPath:self.jsonDict[@"lineImg"]];
+        }
+        if(UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(@"pickBgImg")){
+            scanner.backgroundScanImage=[self getImageByPath:self.jsonDict[@"pickBgImg"]];
+        }
+        if (UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(@"charset")){
+            NSString *charsetStr = [self.jsonDict[@"charset"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].lowercaseString;
+            if ([charsetStr isEqual:@"gbk"]) {
+                scanner.charset = uexScannerEncodingCharsetGBK;
+            }
+        }
+        
+        
+        [EUtility brwView:self.meBrwView presentModalViewController:scanner animated:YES];
+        
     }
-    
-    
-    [EUtility brwView:self.meBrwView presentModalViewController:scanner animated:YES];
+    else{
+        uexAVCaptureOutputViewController *scanner=[[uexAVCaptureOutputViewController alloc]initWithCompletion:^(NSString *scanResult, NSString *codeType, BOOL isCancelled) {
+            [[UIApplication sharedApplication]setStatusBarStyle:initialStatusBarStyle];
+            if(isCancelled){
+                return;
+            }
+            
+            NSMutableDictionary *result=[NSMutableDictionary dictionary];
+            [result setValue:scanResult forKey:@"code"];
+            [result setValue:codeType forKey:@"type"];
+            NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(0,1,'%@');}",[result JSONFragment]];
+            [EUtility brwView:self.meBrwView evaluateScript:jsonString];
+        }];
+        
+        
+        if(UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(@"title")){
+            scanner.scannerTitle=self.jsonDict[@"title"];
+        }
+        if(UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(@"tipLabel") ){
+            scanner.scannerPrompt=self.jsonDict[@"tipLabel"];
+        }
+        if(UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(@"lineImg")){
+            scanner.lineImage=[self getImageByPath:self.jsonDict[@"lineImg"]];
+        }
+        if(UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(@"pickBgImg")){
+            scanner.backgroundScanImage=[self getImageByPath:self.jsonDict[@"pickBgImg"]];
+        }
+        if (UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(@"charset")){
+            NSString *charsetStr = [self.jsonDict[@"charset"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].lowercaseString;
+            if ([charsetStr isEqual:@"gbk"]) {
+                scanner.charset = uexScannerEncodingCGBK;
+            }
+        }
+        
+        
+        [EUtility brwView:self.meBrwView presentModalViewController:scanner animated:YES];
+    }
 
     
 }

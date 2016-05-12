@@ -21,9 +21,9 @@
  *
  */
 
-#import "uexZXingScannerViewController.h"
+#import "uexAVCaptureOutputViewController.h"
 #import <ZXingObjC/ZXingObjC.h>
-@interface uexZXingScannerViewController()<ZXCaptureDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface uexAVCaptureOutputViewController()<ZXCaptureDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,AVCaptureMetadataOutputObjectsDelegate>
 @property (nonatomic,strong)ZXCapture *ZXingCapture;
 
 @end
@@ -42,7 +42,7 @@ static CGFloat kUexScannerPromptVerticalDistanceFromCapture = 10;
 static CGFloat kUexScannerPromptMaxWidth                    = 300;
 
 
-@implementation uexZXingScannerViewController
+@implementation uexAVCaptureOutputViewController
 
 #pragma mark - Life Cycle
 
@@ -101,29 +101,33 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
         kUexScannerCaptureWidth=180;
         kUexScannerCaptureHeight=180;
     }
-    
     self.ZXingCapture.hints = [self decodeHints];
-    self.ZXingCapture.delegate = self;
-    self.ZXingCapture.layer.frame = self.view.frame;
-    [self.view.layer addSublayer:self.ZXingCapture.layer];
-    self.ZXingCapture.layer.frame = self.view.bounds;
-    [self addShadow];
-    [self addCaptureView];
-    [self addTopToolbar];
-    [self addBottomToolbar];
-    [self addPromptLabel];
-
+    //self.ZXingCapture.delegate = self;
+    
+//    self.ZXingCapture.layer.frame = self.view.frame;
+//    [self.view.layer addSublayer:self.ZXingCapture.layer];
+//    self.ZXingCapture.layer.frame = self.view.bounds;
+    
+    if(!self.preview){
+        [self loadAVCaptureOutput];
+        [self addShadow];
+        [self addCaptureView];
+        [self addTopToolbar];
+        [self addBottomToolbar];
+        [self addPromptLabel];
+        
+    }
     
 
-
-//    CGAffineTransform captureSizeTransform = CGAffineTransformMakeScale(320 / self.view.frame.size.width, 480 / self.view.frame.size.height);
-//    self.ZXingCapture.scanRect = CGRectApplyAffineTransform([self captureRect], captureSizeTransform);
     [self applyOrientation];
 }
 
 - (void)dealloc{
     [_ZXingCapture.layer removeFromSuperlayer];
     _ZXingCapture = nil;
+    
+    [self.preview removeFromSuperlayer];
+    self.preview=nil;
 }
 
 #pragma mark - StatusBarStyle
@@ -176,8 +180,8 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
     captureView.frame=[self captureRect];
     
     //lineView
-    UIImageView *lineView=[[UIImageView alloc] initWithImage:self.lineImage];
-    [lineView setFrame:CGRectMake(10, 0, kUexScannerCaptureWidth-20, 2)];
+    self.lineView=[[UIImageView alloc] initWithImage:self.lineImage];
+    [self.lineView setFrame:CGRectMake(10, 0, kUexScannerCaptureWidth-20, 2)];
     CAKeyframeAnimation *move=[CAKeyframeAnimation animationWithKeyPath:@"position"];
     CGMutablePathRef path=CGPathCreateMutable();
     CGPathMoveToPoint(path, NULL, kUexScannerCaptureWidth/2, 0);
@@ -189,8 +193,8 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
     move.duration=1.5;
     move.autoreverses=YES;
     move.removedOnCompletion=NO;
-    [captureView addSubview:lineView];
-    [lineView.layer addAnimation:move forKey:@"move"];
+    [captureView addSubview:self.lineView];
+    [self.lineView.layer addAnimation:move forKey:@"move"];
     
     //这个动画有必要么？
     /*
@@ -295,6 +299,8 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
 #pragma mark - Helper
 
 - (void)dismissWithResult:(NSString *)scanResult codeType:(NSString *)codeType isCancelled:(BOOL)isCancelled{
+    [self.preview removeFromSuperlayer];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [self dismissViewControllerAnimated:YES completion:^{
             if(self.completion){
@@ -400,10 +406,10 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
     hints.tryHarder = YES;
 
     switch (self.charset) {
-        case uexScannerEncodingCharsetUTF8: {
+        case uexScannerEncodingCUTF8: {
             break;
         }
-        case uexScannerEncodingCharsetGBK: {
+        case uexScannerEncodingCGBK: {
             NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
             hints.encoding = gbkEncoding;
             break;
@@ -436,7 +442,15 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
     ZXMultiFormatReader *reader = [ZXMultiFormatReader reader];
     ZXResult *result = [reader decode:bitmap hints:[self decodeHints] error:&error];
     if (result) {
-        [self dismissWithResult:result.text codeType:[self barcodeFormatToString:result.barcodeFormat] isCancelled:NO];
+        //[self dismissWithResult:result.text codeType:[self barcodeFormatToString:result.barcodeFormat] isCancelled:NO];
+        //这里需要关闭动画，不然退出的时候动画有卡顿
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self dismissViewControllerAnimated:NO completion:^{
+                if(self.completion){
+                    self.completion(result.text,[self barcodeFormatToString:result.barcodeFormat],NO);
+                }
+            }];
+        });
     }else{
         NSLog(@"%@",[error localizedDescription]);
     }
@@ -483,6 +497,8 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
     [self.ZXingCapture setTransform:transform];
     [self.ZXingCapture setRotation:scanRectRotation];
     self.ZXingCapture.layer.frame = self.view.frame;
+    
+    [self.preview setAffineTransform:transform];
 }
 
 
@@ -519,6 +535,8 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
     }
     CGAffineTransform captureSizeTransform = CGAffineTransformMakeScale(1/scaleVideo, 1/scaleVideo);
     self.ZXingCapture.scanRect = CGRectApplyAffineTransform(transformedVideoRect, captureSizeTransform);
+    
+    self.preview.bounds = CGRectApplyAffineTransform(transformedVideoRect, captureSizeTransform);
 }
 
 
@@ -529,4 +547,67 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
 //- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
 //    return UIInterfaceOrientationMaskPortrait;
 //}
+
+
+
+#pragma mark -AVCaptureOutput
+
+-(void)loadAVCaptureOutput{
+    self.device = [ AVCaptureDevice defaultDeviceWithMediaType : AVMediaTypeVideo ];
+    self.input = [ AVCaptureDeviceInput deviceInputWithDevice : self.device error : nil ];
+    self.output = [[ AVCaptureMetadataOutput alloc ] init ];
+    [ self.output setMetadataObjectsDelegate : self queue : dispatch_get_main_queue ()];
+    
+    //扫描兴趣框
+    //[ output setRectOfInterest : CGRectMake (( 124 )/ SCREEN_HEIGHT ,(( SCREEN_WIDTH - 220 )/ 2 )/ SCREEN_WIDTH , 220 / SCREEN_HEIGHT , 220 / SCREEN_WIDTH )];
+    CGRect rect=[self captureRect];
+    [ self.output setRectOfInterest : CGRectMake (rect.origin.y/ SCREEN_HEIGHT ,rect.origin.x/ SCREEN_WIDTH , rect.size.height / SCREEN_HEIGHT , rect.size.width / SCREEN_WIDTH )];
+    
+    // Session
+    self.session = [[ AVCaptureSession alloc ] init ];
+    [ self.session setSessionPreset : AVCaptureSessionPresetHigh ];
+    if ([ self.session canAddInput : self.input ]){
+        [ self.session addInput : self.input ];
+    }
+    if ([ self.session canAddOutput : self.output ]){
+        [ self.session addOutput : self.output ];
+    }
+    // 条码类型 AVMetadataObjectTypeQRCode
+    float phoneVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if(phoneVersion<8.0){
+        self.output . metadataObjectTypes = @[ AVMetadataObjectTypeUPCECode,AVMetadataObjectTypeCode39Code ,AVMetadataObjectTypeCode39Mod43Code,AVMetadataObjectTypeEAN13Code,AVMetadataObjectTypeEAN8Code,AVMetadataObjectTypeCode93Code ,AVMetadataObjectTypeCode128Code,AVMetadataObjectTypePDF417Code ,AVMetadataObjectTypeQRCode ,AVMetadataObjectTypeAztecCode ] ;
+    }
+    else{
+        self.output . metadataObjectTypes = @[ AVMetadataObjectTypeUPCECode,AVMetadataObjectTypeCode39Code ,AVMetadataObjectTypeCode39Mod43Code,AVMetadataObjectTypeEAN13Code,AVMetadataObjectTypeEAN8Code,AVMetadataObjectTypeCode93Code ,AVMetadataObjectTypeCode128Code,AVMetadataObjectTypePDF417Code ,AVMetadataObjectTypeQRCode ,AVMetadataObjectTypeAztecCode ,AVMetadataObjectTypeInterleaved2of5Code , AVMetadataObjectTypeITF14Code , AVMetadataObjectTypeDataMatrixCode ] ;
+    }
+    
+    // Preview
+    self.preview =[ AVCaptureVideoPreviewLayer layerWithSession : self.session ];
+    self.preview.videoGravity = AVLayerVideoGravityResizeAspect ;
+    self.preview.frame = self.view.layer.bounds ;
+    [ self.view.layer insertSublayer : self.preview atIndex : 0 ];
+    
+    
+    [ self.session startRunning ];
+}
+- ( void )captureOutput:( AVCaptureOutput *)captureOutput didOutputMetadataObjects:( NSArray *)metadataObjects fromConnection:( AVCaptureConnection *)connection
+{
+    if ([metadataObjects count ] > 0 )
+    {
+        // 停止扫描
+        [ self.session stopRunning ];
+        [self.lineView.layer removeAnimationForKey:@"move"];
+        
+        AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex : 0 ];
+        NSString *resultStr = metadataObject.stringValue ;
+        NSString *codeType=metadataObject.type;
+        
+        //NSLog(@"----%@",resultStr);
+        NSArray *typeArray = [codeType componentsSeparatedByString:@"."];
+        if(resultStr &&typeArray.count>=3){
+            [self dismissWithResult:resultStr codeType:typeArray[2] isCancelled:NO];
+        }
+    }
+}
+
 @end
