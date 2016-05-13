@@ -41,6 +41,7 @@ typedef void (^uexScannerCompletionBlock)(NSString *scanResult,NSString *codeTyp
 @property (nonatomic,strong)uexScannerCompletionBlock completion;
 @property (nonatomic,assign)uexScannerEncodingC charset;
 @property (nonatomic,strong)UIImageView *lineView;
+@property (nonatomic,assign)float frequency;
 
 
 //AVCaptureOutput

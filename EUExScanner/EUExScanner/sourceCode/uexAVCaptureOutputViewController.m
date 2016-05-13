@@ -190,7 +190,7 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
     CFRelease(path);
     //足够大
     move.repeatCount=100000;
-    move.duration=1.5;
+    move.duration=self.frequency;
     move.autoreverses=YES;
     move.removedOnCompletion=NO;
     [captureView addSubview:self.lineView];

@@ -60,6 +60,12 @@
                 scanner.charset = uexScannerEncodingCharsetGBK;
             }
         }
+        if([self.jsonDict objectForKey:@"frequency"]){
+            scanner.frequency=[[self.jsonDict objectForKey:@"frequency"] floatValue];
+        }
+        else{
+            scanner.frequency=1.5;
+        }
         
         
         [EUtility brwView:self.meBrwView presentModalViewController:scanner animated:YES];
@@ -97,6 +103,12 @@
             if ([charsetStr isEqual:@"gbk"]) {
                 scanner.charset = uexScannerEncodingCGBK;
             }
+        }
+        if([self.jsonDict objectForKey:@"frequency"]){
+            scanner.frequency=[[self.jsonDict objectForKey:@"frequency"] floatValue];
+        }
+        else{
+            scanner.frequency=1.5;
         }
         
         
