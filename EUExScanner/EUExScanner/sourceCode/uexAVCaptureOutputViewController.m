@@ -506,14 +506,35 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
     CGFloat scaleVideo, scaleVideoX, scaleVideoY;
     CGFloat videoSizeX, videoSizeY;
     CGRect transformedVideoRect = self.view.frame;
-    if([self.ZXingCapture.sessionPreset isEqualToString:AVCaptureSessionPreset1920x1080]) {
-        videoSizeX = 1080;
-        videoSizeY = 1920;
-    }
-    else {
-        videoSizeX = 720;
-        videoSizeY = 1280;
-    }
+//    if([self.ZXingCapture.sessionPreset isEqualToString:AVCaptureSessionPreset1920x1080]) {
+//        videoSizeX = 1080;
+//        videoSizeY = 1920;
+//    }
+//    else if([self.ZXingCapture.sessionPreset isEqualToString:AVCaptureSessionPreset1280x720]) {
+//        videoSizeX = 720;
+//        videoSizeY = 1280;
+//    }
+//    else if([self.ZXingCapture.sessionPreset isEqualToString:AVCaptureSessionPresetiFrame960x540]) {
+//        videoSizeX = 540;
+//        videoSizeY = 960;
+//    }
+//    else if([self.ZXingCapture.sessionPreset isEqualToString:AVCaptureSessionPreset3840x2160]) {
+//        videoSizeX = 2160;
+//        videoSizeY = 3840;
+//    }
+//    else{
+//        CGFloat scale_screen = [UIScreen mainScreen].scale;
+//        CGFloat width = SCREEN_WIDTH*scale_screen;
+//        CGFloat height = SCREEN_HEIGHT*scale_screen;
+//        videoSizeX = width>height ? height : width;
+//        videoSizeY = width>height ? width : height;
+    //    }
+    CGFloat scale_screen = [UIScreen mainScreen].scale;
+    CGFloat width = SCREEN_WIDTH*scale_screen;
+    CGFloat height = SCREEN_HEIGHT*scale_screen;
+    videoSizeX = width>height ? height : width;
+    videoSizeY = width>height ? width : height;
+    
     if(UIInterfaceOrientationIsPortrait(orientation)) {
         scaleVideoX = self.view.frame.size.width / videoSizeX;
         scaleVideoY = self.view.frame.size.height / videoSizeY;

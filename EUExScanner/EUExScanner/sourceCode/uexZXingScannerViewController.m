@@ -490,14 +490,20 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
     CGFloat scaleVideo, scaleVideoX, scaleVideoY;
     CGFloat videoSizeX, videoSizeY;
     CGRect transformedVideoRect = self.view.frame;
-    if([self.ZXingCapture.sessionPreset isEqualToString:AVCaptureSessionPreset1920x1080]) {
-        videoSizeX = 1080;
-        videoSizeY = 1920;
-    }
-    else {
-        videoSizeX = 720;
-        videoSizeY = 1280;
-    }
+//    if([self.ZXingCapture.sessionPreset isEqualToString:AVCaptureSessionPreset1920x1080]) {
+//        videoSizeX = 1080;
+//        videoSizeY = 1920;
+//    }
+//    else {
+//        videoSizeX = 720;
+//        videoSizeY = 1280;
+//    }
+    CGFloat scale_screen = [UIScreen mainScreen].scale;
+    CGFloat width = SCREEN_WIDTH*scale_screen;
+    CGFloat height = SCREEN_HEIGHT*scale_screen;
+    videoSizeX = width>height ? height : width;
+    videoSizeY = width>height ? width : height;
+    
     if(UIInterfaceOrientationIsPortrait(orientation)) {
         scaleVideoX = self.view.frame.size.width / videoSizeX;
         scaleVideoY = self.view.frame.size.height / videoSizeY;
