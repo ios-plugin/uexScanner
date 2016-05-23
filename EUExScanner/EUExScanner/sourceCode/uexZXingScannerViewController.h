@@ -39,7 +39,9 @@ typedef void (^uexScannerCompletionBlock)(NSString *scanResult,NSString *codeTyp
 @property (nonatomic,strong)NSString *scannerPrompt;
 @property (nonatomic,strong)uexScannerCompletionBlock completion;
 @property (nonatomic,assign)uexScannerEncodingCharset charset;
+@property (nonatomic,strong)UIImageView *captureView;
 @property (nonatomic,assign)float frequency;
+@property (nonatomic,assign)CGRect viewCGRect;
 
 
 - (instancetype)initWithCompletion:(uexScannerCompletionBlock)completion;

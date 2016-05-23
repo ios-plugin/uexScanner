@@ -76,7 +76,8 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
     capture.focusMode = AVCaptureFocusModeContinuousAutoFocus;
     capture.rotation = 90.0f;
     capture.layer.frame = self.view.bounds;
-    
+    self.viewCGRect=self.view.bounds;
+    //NSLog(@"------self.view.bounds:%@",NSStringFromCGRect(self.view.bounds));
 
     self.ZXingCapture = capture;
 
@@ -104,14 +105,19 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
     
     self.ZXingCapture.hints = [self decodeHints];
     self.ZXingCapture.delegate = self;
-    self.ZXingCapture.layer.frame = self.view.frame;
-    [self.view.layer addSublayer:self.ZXingCapture.layer];
-    self.ZXingCapture.layer.frame = self.view.bounds;
-    [self addShadow];
-    [self addCaptureView];
-    [self addTopToolbar];
-    [self addBottomToolbar];
-    [self addPromptLabel];
+    self.ZXingCapture.layer.frame = self.viewCGRect;
+//    self.ZXingCapture.layer.frame = self.view.bounds;
+    //NSLog(@"---viewWillAppear---self.view.bounds:%@",NSStringFromCGRect(self.view.bounds));
+    
+    if(!self.captureView){
+        [self.view.layer addSublayer:self.ZXingCapture.layer];
+        [self addShadow];
+        [self addCaptureView];
+        [self addTopToolbar];
+        [self addBottomToolbar];
+        [self addPromptLabel];
+        
+    }
 
     
 
@@ -172,8 +178,8 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
 
 
 - (void)addCaptureView{
-    UIImageView *captureView=[[UIImageView alloc]initWithImage:self.backgroundScanImage];
-    captureView.frame=[self captureRect];
+    self.captureView=[[UIImageView alloc]initWithImage:self.backgroundScanImage];
+    self.captureView.frame=[self captureRect];
     
     //lineView
     UIImageView *lineView=[[UIImageView alloc] initWithImage:self.lineImage];
@@ -189,7 +195,7 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
     move.duration=self.frequency;
     move.autoreverses=YES;
     move.removedOnCompletion=NO;
-    [captureView addSubview:lineView];
+    [self.captureView addSubview:lineView];
     [lineView.layer addAnimation:move forKey:@"move"];
     
     //这个动画有必要么？
@@ -223,7 +229,7 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
     [imageUp.layer addAnimation:translationUp forKey:nil];
     [imageDown.layer addAnimation:translationDown forKey:nil];
     */
-    [self.view addSubview:captureView];
+    [self.view addSubview:self.captureView];
 }
 
 
@@ -425,7 +431,8 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
         }];
     });
     
-    UIImage * image = [info objectForKey:UIImagePickerControllerEditedImage];
+    UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
     ZXLuminanceSource *source = [[ZXCGImageLuminanceSource alloc] initWithCGImage:image.CGImage];
     ZXBinaryBitmap *bitmap = [ZXBinaryBitmap binaryBitmapWithBinarizer:[ZXHybridBinarizer binarizerWithSource:source]];
 
@@ -482,7 +489,9 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
     CGAffineTransform transform = CGAffineTransformMakeRotation((CGFloat) (captureRotation / 180 * M_PI));
     [self.ZXingCapture setTransform:transform];
     [self.ZXingCapture setRotation:scanRectRotation];
-    self.ZXingCapture.layer.frame = self.view.frame;
+    
+    self.ZXingCapture.layer.frame = self.viewCGRect;
+    
 }
 
 
