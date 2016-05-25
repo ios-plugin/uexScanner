@@ -236,6 +236,8 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
 - (void)addTopToolbar{
     UIToolbar *statusBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0,0, SCREEN_WIDTH, 20)];
     [statusBar setBarStyle:UIBarStyleBlack];
+    statusBar.clipsToBounds = YES;
+    
     UIToolbar *topToolbar=[[UIToolbar alloc] initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, kUexScannerTopToolbarHeitght)];
     UIBarButtonItem *titleItem=[[UIBarButtonItem alloc]initWithTitle:self.scannerTitle style:UIBarButtonItemStylePlain target:nil action:nil];
     titleItem.tintColor=[UIColor whiteColor];
@@ -245,6 +247,7 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
                            [self flexibleSpaceItem]]];
     [topToolbar setBarStyle:UIBarStyleBlack];
     [topToolbar setTintColor:[UIColor whiteColor]];
+    topToolbar.clipsToBounds = YES;
     //[topToolbar setTranslucent:NO];
     [self.view addSubview:statusBar];
     [self.view addSubview:topToolbar];
