@@ -14,6 +14,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "EUtility.h"
-
+#import <AppCanKit/AppCanKit.h>
 #endif
 #endif /* PrefixHeader_pch */
