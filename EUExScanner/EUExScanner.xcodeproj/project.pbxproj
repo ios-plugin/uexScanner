@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09E260FB1D07B46500E6371C /* AppCanKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E260FA1D07B46500E6371C /* AppCanKit.framework */; };
 		3C6F33081CE315B20079BC1C /* uexAVCaptureOutputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6F33071CE315B20079BC1C /* uexAVCaptureOutputViewController.m */; };
 		4282684A1C28E59300A10A68 /* uexZXingScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 428268491C28E59300A10A68 /* uexZXingScannerViewController.m */; };
 		428268571C28E8BE00A10A68 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 4282684C1C28E8BE00A10A68 /* down.png */; };
@@ -55,6 +56,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		09E260FA1D07B46500E6371C /* AppCanKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCanKit.framework; sourceTree = "<group>"; };
 		3C6F33061CE315B10079BC1C /* uexAVCaptureOutputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexAVCaptureOutputViewController.h; sourceTree = "<group>"; };
 		3C6F33071CE315B20079BC1C /* uexAVCaptureOutputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexAVCaptureOutputViewController.m; sourceTree = "<group>"; };
 		4282682A1C280A3100A10A68 /* uexScanner.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uexScanner.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +76,6 @@
 		428268551C28E8BE00A10A68 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
 		42FE64E81C291DD200B6EF17 /* ZXingObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZXingObjC.framework; sourceTree = "<group>"; };
 		F728A2501AB7FC27003FDDA4 /* libuexScanner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libuexScanner.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F728A2A81AB7FF2E003FDDA4 /* EUExBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBase.h; sourceTree = "<group>"; };
 		F728A2A91AB7FF2E003FDDA4 /* EUExBaseDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBaseDefine.h; sourceTree = "<group>"; };
 		F728A2AC1AB80084003FDDA4 /* EUExScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExScanner.h; sourceTree = "<group>"; };
 		F728A2AD1AB80084003FDDA4 /* EUExScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EUExScanner.m; sourceTree = "<group>"; };
@@ -107,6 +108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F728A2BE1AB80210003FDDA4 /* Foundation.framework in Frameworks */,
+				09E260FB1D07B46500E6371C /* AppCanKit.framework in Frameworks */,
 				F728A2BC1AB8020A003FDDA4 /* UIKit.framework in Frameworks */,
 				F728A2BA1AB801EE003FDDA4 /* CoreGraphics.framework in Frameworks */,
 				F728A2B81AB801E8003FDDA4 /* QuartzCore.framework in Frameworks */,
@@ -140,6 +142,7 @@
 		428268471C28E59300A10A68 /* sourceCode */ = {
 			isa = PBXGroup;
 			children = (
+				09E260FA1D07B46500E6371C /* AppCanKit.framework */,
 				428268481C28E59300A10A68 /* uexZXingScannerViewController.h */,
 				428268491C28E59300A10A68 /* uexZXingScannerViewController.m */,
 				3C6F33061CE315B10079BC1C /* uexAVCaptureOutputViewController.h */,
@@ -193,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				428268321C280B7B00A10A68 /* EUtility.h */,
-				F728A2A81AB7FF2E003FDDA4 /* EUExBase.h */,
 				F728A2A91AB7FF2E003FDDA4 /* EUExBaseDefine.h */,
 			);
 			path = engineHeader;
@@ -474,6 +476,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EUExScanner/libs",
+					"$(PROJECT_DIR)/EUExScanner/sourceCode",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = $SRCROOT/EUExScanner/PrefixHeader.pch;
@@ -494,6 +497,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EUExScanner/libs",
+					"$(PROJECT_DIR)/EUExScanner/sourceCode",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = $SRCROOT/EUExScanner/PrefixHeader.pch;
