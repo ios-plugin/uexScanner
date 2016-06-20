@@ -30,6 +30,8 @@
         AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
        if(authStatus !=AVAuthorizationStatusAuthorized){
                 //NSLog(@"相机权限受限");
+           [self.webViewEngine callbackWithFunctionKeyPath:@"uexScanner.cbOpen" arguments:ACArgsPack(@1,@1,@0)];
+           [func executeWithArguments:ACArgsPack(@"")];
                 return;
         }
     UIStatusBarStyle initialStatusBarStyle =[UIApplication sharedApplication].statusBarStyle;
