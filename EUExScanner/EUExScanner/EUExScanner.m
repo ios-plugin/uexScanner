@@ -7,6 +7,7 @@
 //
 
 #import "EUExScanner.h"
+#import <Foundation/Foundation.h>
 #import "uexAVCaptureOutputViewController.h"
 #import "uexZXingScannerViewController.h"
 #import "JSON.h"
@@ -24,7 +25,13 @@
 
 
 - (void)open:(NSMutableArray *)inArguments {
-
+    NSString *mediaType = AVMediaTypeVideo;
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+    if(authStatus !=AVAuthorizationStatusAuthorized){
+        //NSLog(@"相机权限受限");
+        return;
+    }
+    
     UIStatusBarStyle initialStatusBarStyle =[UIApplication sharedApplication].statusBarStyle;
      float phoneVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
     if(phoneVersion<7.0){
