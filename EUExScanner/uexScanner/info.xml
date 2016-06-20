@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <uexplugins>
     <plugin
-        uexName="uexScanner" version="4.0.0" build="8">
-        <info>8:支持4.0引擎，函数入参</info>
+        uexName="uexScanner" version="4.0.0" build="9">
+        <info>9:支持4.0引擎，函数入参</info>
+        <build>8:解决相机权限受限APP闪退的问题</build>
         <build>7:修改为ios7.0以上调用系统库扫描</build>
         <build>6:修复横屏扫描时图像显示异常的BUG</build>
         <build>5:添加可选参数charset，支持GBK编码的二维码</build>
