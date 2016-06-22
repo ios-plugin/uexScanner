@@ -27,7 +27,7 @@
 - (void)open:(NSMutableArray *)inArguments {
     NSString *mediaType = AVMediaTypeVideo;
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
-    if(authStatus !=AVAuthorizationStatusAuthorized){
+    if(authStatus ==AVAuthorizationStatusRestricted ||  authStatus==AVAuthorizationStatusDenied){
         //NSLog(@"相机权限受限");
         NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(1,1,0);}"];
         [EUtility brwView:self.meBrwView evaluateScript:jsonString];
