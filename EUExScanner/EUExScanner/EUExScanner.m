@@ -28,10 +28,10 @@
     ACJSFunctionRef *func = JSFunctionArg(inArguments.lastObject);
         NSString *mediaType = AVMediaTypeVideo;
         AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
-       if(authStatus !=AVAuthorizationStatusAuthorized){
+       if(authStatus ==AVAuthorizationStatusRestricted ||  authStatus==AVAuthorizationStatusDenied){
                 //NSLog(@"相机权限受限");
            [self.webViewEngine callbackWithFunctionKeyPath:@"uexScanner.cbOpen" arguments:ACArgsPack(@1,@1,@0)];
-           [func executeWithArguments:ACArgsPack(@"")];
+           [func executeWithArguments:ACArgsPack(nil)];
                 return;
         }
     UIStatusBarStyle initialStatusBarStyle =[UIApplication sharedApplication].statusBarStyle;
