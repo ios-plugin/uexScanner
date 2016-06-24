@@ -33,10 +33,29 @@
         [EUtility brwView:self.meBrwView evaluateScript:jsonString];
         return;
     }
+    else if(authStatus ==AVAuthorizationStatusNotDetermined){
+        [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted) {
+            if(granted==NO){
+                NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(1,1,0);}"];
+                [EUtility brwView:self.meBrwView evaluateScript:jsonString];
+                return ;
+            }
+            else{
+                [self openCamera];
+            }
+        }];
+    }
+    else{
+        [self openCamera];
+    }
+
+    
+}
+-(void)openCamera{
     
     UIStatusBarStyle initialStatusBarStyle =[UIApplication sharedApplication].statusBarStyle;
-     float phoneVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
-    if(phoneVersion<7.0){
+    float phoneVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if(phoneVersion<8.0){
         uexZXingScannerViewController *scanner=[[uexZXingScannerViewController alloc]initWithCompletion:^(NSString *scanResult, NSString *codeType, BOOL isCancelled) {
             [[UIApplication sharedApplication]setStatusBarStyle:initialStatusBarStyle];
             if(isCancelled){
@@ -123,10 +142,7 @@
         
         [EUtility brwView:self.meBrwView presentModalViewController:scanner animated:YES];
     }
-
-    
 }
-
 
 - (void)setJsonData:(NSMutableArray *)inArguments{
     if([inArguments count] < 1){

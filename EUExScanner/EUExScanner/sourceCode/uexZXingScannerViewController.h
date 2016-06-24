@@ -22,6 +22,7 @@
  */
  
 #import <Foundation/Foundation.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 typedef NS_ENUM(NSInteger,uexScannerEncodingCharset){
     uexScannerEncodingCharsetUTF8 = 0,
