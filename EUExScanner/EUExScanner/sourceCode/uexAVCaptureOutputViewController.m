@@ -291,13 +291,31 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
 }
 
 - (void)albumButtonClicked:(id)sender{
+//8.0+
+//    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+//        
+//    }];
+    
+    ALAuthorizationStatus status=[ALAssetsLibrary authorizationStatus];
+    if(status==ALAuthorizationStatusNotDetermined){
+        ALAssetsLibrary *photo=[ALAssetsLibrary alloc];
+        [photo assetForURL:nil resultBlock:^(ALAsset *asset) {
+            [self openPicker];
+        } failureBlock:^(NSError *error) {
+            [self openPicker];
+        }];
+    }
+    else{
+        [self openPicker];
+    }
+}
+-(void)openPicker{
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.allowsEditing = YES;
     picker.delegate = self;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:picker animated:YES completion:nil];
 }
-
 
 #pragma mark - Helper
 

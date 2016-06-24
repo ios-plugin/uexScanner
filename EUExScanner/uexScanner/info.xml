@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <uexplugins>
     <plugin
-        uexName="uexScanner" version="4.0.0" build="9">
+         uexName="uexScanner" version="4.0.0" build="9">
         <info>9:支持4.0引擎，函数入参</info>
         <build>8:解决相机权限受限APP闪退的问题</build>
         <build>7:修改为ios7.0以上调用系统库扫描</build>

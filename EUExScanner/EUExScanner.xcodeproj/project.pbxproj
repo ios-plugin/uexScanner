@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09E260FB1D07B46500E6371C /* AppCanKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E260FA1D07B46500E6371C /* AppCanKit.framework */; };
+		212469F71D1D052600FA5DEF /* AppCanKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212469F61D1D052600FA5DEF /* AppCanKit.framework */; };
 		3C6F33081CE315B20079BC1C /* uexAVCaptureOutputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6F33071CE315B20079BC1C /* uexAVCaptureOutputViewController.m */; };
 		4282684A1C28E59300A10A68 /* uexZXingScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 428268491C28E59300A10A68 /* uexZXingScannerViewController.m */; };
 		428268571C28E8BE00A10A68 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 4282684C1C28E8BE00A10A68 /* down.png */; };
@@ -56,7 +56,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		09E260FA1D07B46500E6371C /* AppCanKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCanKit.framework; sourceTree = "<group>"; };
+		212469F61D1D052600FA5DEF /* AppCanKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCanKit.framework; sourceTree = "<group>"; };
 		3C6F33061CE315B10079BC1C /* uexAVCaptureOutputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexAVCaptureOutputViewController.h; sourceTree = "<group>"; };
 		3C6F33071CE315B20079BC1C /* uexAVCaptureOutputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexAVCaptureOutputViewController.m; sourceTree = "<group>"; };
 		4282682A1C280A3100A10A68 /* uexScanner.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uexScanner.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,7 +108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F728A2BE1AB80210003FDDA4 /* Foundation.framework in Frameworks */,
-				09E260FB1D07B46500E6371C /* AppCanKit.framework in Frameworks */,
+				212469F71D1D052600FA5DEF /* AppCanKit.framework in Frameworks */,
 				F728A2BC1AB8020A003FDDA4 /* UIKit.framework in Frameworks */,
 				F728A2BA1AB801EE003FDDA4 /* CoreGraphics.framework in Frameworks */,
 				F728A2B81AB801E8003FDDA4 /* QuartzCore.framework in Frameworks */,
@@ -142,7 +142,7 @@
 		428268471C28E59300A10A68 /* sourceCode */ = {
 			isa = PBXGroup;
 			children = (
-				09E260FA1D07B46500E6371C /* AppCanKit.framework */,
+				212469F61D1D052600FA5DEF /* AppCanKit.framework */,
 				428268481C28E59300A10A68 /* uexZXingScannerViewController.h */,
 				428268491C28E59300A10A68 /* uexZXingScannerViewController.m */,
 				3C6F33061CE315B10079BC1C /* uexAVCaptureOutputViewController.h */,

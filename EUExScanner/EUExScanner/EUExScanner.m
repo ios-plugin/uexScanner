@@ -26,17 +26,41 @@
 
 - (void)open:(NSMutableArray *)inArguments {
     ACJSFunctionRef *func = JSFunctionArg(inArguments.lastObject);
-        NSString *mediaType = AVMediaTypeVideo;
-        AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
-       if(authStatus ==AVAuthorizationStatusRestricted ||  authStatus==AVAuthorizationStatusDenied){
-                //NSLog(@"相机权限受限");
-           [self.webViewEngine callbackWithFunctionKeyPath:@"uexScanner.cbOpen" arguments:ACArgsPack(@1,@1,@0)];
-           [func executeWithArguments:ACArgsPack(nil)];
-                return;
-        }
+    NSString *mediaType = AVMediaTypeVideo;
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+    if(authStatus ==AVAuthorizationStatusRestricted ||  authStatus==AVAuthorizationStatusDenied){
+        //NSLog(@"相机权限受限");
+        //NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(1,1,0);}"];
+        //[EUtility brwView:self.meBrwView evaluateScript:jsonString];
+        [self.webViewEngine callbackWithFunctionKeyPath:@"uexScanner.cbOpen" arguments:ACArgsPack(@1,@1,@0)];
+        [func executeWithArguments:ACArgsPack(nil)];
+        return;
+    }
+    else if(authStatus ==AVAuthorizationStatusNotDetermined){
+        [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted) {
+            if(granted==NO){
+                //NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(1,1,0);}"];
+                //[EUtility brwView:self.meBrwView evaluateScript:jsonString];
+                [self.webViewEngine callbackWithFunctionKeyPath:@"uexScanner.cbOpen" arguments:ACArgsPack(@1,@1,@0)];
+                [func executeWithArguments:ACArgsPack(nil)];
+                return ;
+            }
+            else{
+                [self openCameraWithFunction:func];
+            }
+        }];
+    }
+    else{
+        [self openCameraWithFunction:func];
+    }
+
+    
+}
+-(void)openCameraWithFunction:(ACJSFunctionRef*)func{
+    
     UIStatusBarStyle initialStatusBarStyle =[UIApplication sharedApplication].statusBarStyle;
-     float phoneVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
-    if(phoneVersion<7.0){
+    float phoneVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if(phoneVersion<8.0){
         uexZXingScannerViewController *scanner=[[uexZXingScannerViewController alloc]initWithCompletion:^(NSString *scanResult, NSString *codeType, BOOL isCancelled) {
             [[UIApplication sharedApplication]setStatusBarStyle:initialStatusBarStyle];
             if(isCancelled){
@@ -48,7 +72,7 @@
             [result setValue:codeType forKey:@"type"];
             //NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(0,1,'%@');}",[result JSONFragment]];
             //[EUtility brwView:self.meBrwView evaluateScript:jsonString];
-            [self.webViewEngine callbackWithFunctionKeyPath:@"uexScanner.cbOpen" arguments:ACArgsPack(@0,@1,[result JSONFragment])];
+            [self.webViewEngine callbackWithFunctionKeyPath:@"uexScanner.cbOpen" arguments:ACArgsPack(@0,@1,[result ac_JSONFragment])];
             [func executeWithArguments:ACArgsPack(result)];
         }];
         
@@ -78,9 +102,9 @@
             scanner.frequency=1.5;
         }
         
-        //[EUtility brwView:self.meBrwView presentModalViewController:scanner animated:YES];
-        [[self.webViewEngine viewController] presentViewController:scanner animated:YES completion:nil];
         
+        //[EUtility brwView:self.meBrwView presentModalViewController:scanner animated:YES];
+         [[self.webViewEngine viewController] presentViewController:scanner animated:YES completion:nil];
     }
     else{
         uexAVCaptureOutputViewController *scanner=[[uexAVCaptureOutputViewController alloc]initWithCompletion:^(NSString *scanResult, NSString *codeType, BOOL isCancelled) {
@@ -92,9 +116,9 @@
             NSMutableDictionary *result=[NSMutableDictionary dictionary];
             [result setValue:scanResult forKey:@"code"];
             [result setValue:codeType forKey:@"type"];
-            //NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(0,1,'%@');}",[result JSONFragment]];
+           // NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(0,1,'%@');}",[result JSONFragment]];
             //[EUtility brwView:self.meBrwView evaluateScript:jsonString];
-            [self.webViewEngine callbackWithFunctionKeyPath:@"uexScanner.cbOpen" arguments:ACArgsPack(@0,@1,[result JSONFragment])];
+            [self.webViewEngine callbackWithFunctionKeyPath:@"uexScanner.cbOpen" arguments:ACArgsPack(@0,@1,[result ac_JSONFragment])];
             [func executeWithArguments:ACArgsPack(result)];
         }];
         
@@ -126,12 +150,9 @@
         
         
         //[EUtility brwView:self.meBrwView presentModalViewController:scanner animated:YES];
-         [[self.webViewEngine viewController] presentViewController:scanner animated:YES completion:nil];
+        [[self.webViewEngine viewController] presentViewController:scanner animated:YES completion:nil];
     }
-
-    
 }
-
 
 - (void)setJsonData:(NSMutableArray *)inArguments{
     if([inArguments count] < 1){

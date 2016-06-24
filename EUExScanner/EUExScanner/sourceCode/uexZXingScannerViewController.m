@@ -293,6 +293,20 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
 }
 
 - (void)albumButtonClicked:(id)sender{
+    ALAuthorizationStatus status=[ALAssetsLibrary authorizationStatus];
+    if(status==ALAuthorizationStatusNotDetermined){
+        ALAssetsLibrary *photo=[ALAssetsLibrary alloc];
+        [photo assetForURL:nil resultBlock:^(ALAsset *asset) {
+            [self openPicker];
+        } failureBlock:^(NSError *error) {
+            [self openPicker];
+        }];
+    }
+    else{
+        [self openPicker];
+    }
+}
+-(void)openPicker{
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.allowsEditing = YES;
     picker.delegate = self;

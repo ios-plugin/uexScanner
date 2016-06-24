@@ -23,6 +23,7 @@
  
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 typedef NS_ENUM(NSInteger,uexScannerEncodingC){
     uexScannerEncodingCUTF8 = 0,
