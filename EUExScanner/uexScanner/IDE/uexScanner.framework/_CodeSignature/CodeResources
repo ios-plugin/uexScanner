@@ -6,123 +6,176 @@
 	<dict>
 		<key>Info.plist</key>
 		<data>
-		/D4/TnKgY+y6HUjtadtovP+Gg9U=
+		nChIyTxFfU7w+kqejc9mzJ3U7uo=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		JKbXoT98W7zj86Z2W3qbeHZe/kE=
+		VccYRc8+LJpEK2ajGtgIir/pOpk=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/down.png</key>
+		<key>uexScanner.bundle/down.png</key>
 		<data>
-		GEL5k8WGC1CnKaVFbsHGLvJfrL4=
+		fj0wlv6iQYO4r2ynA1YwxNslTVk=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/line@2x.png</key>
+		<key>uexScanner.bundle/line@2x.png</key>
 		<data>
-		1qLqDlxxVBw230XHq613NQQ6a4o=
+		bqBmMvnvPWJ6po8fTsp0n3tG17c=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocrBack.tiff</key>
+		<key>uexScanner.bundle/ocrBack@2x.png</key>
 		<data>
-		+p4muxlqqt8A73862l6IWedkGX4=
+		k7/gn5nl1UDlFSk2rBYkjTm7F1Y=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocrBack@2x.png</key>
+		<key>uexScanner.bundle/ocrBack@3x.png</key>
 		<data>
-		GN35ghRWUwisjOSRrzMmWQjoqlo=
+		yoAiMDD4aKbTBdRX2ALiWSQMlRE=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocrBack@3x.png</key>
+		<key>uexScanner.bundle/ocr_albums@2x.png</key>
 		<data>
-		3wuS/C6wKDwagMdmR2Ez0l7lmW0=
+		sgSTHXqzAXSA6IwLITBr+u5pxPc=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_albums.tiff</key>
+		<key>uexScanner.bundle/ocr_albums@3x.png</key>
 		<data>
-		MkdM2lMJ1ruf8cYVJ+qK4qG3trw=
+		ApZ0a43eNEx4dekzpB18vbJ5eYI=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_albums@2x.png</key>
+		<key>uexScanner.bundle/ocr_flash-off@2x.png</key>
 		<data>
-		w0E/fzSDyNtjo3di3/WD5MjBLR0=
+		fN565wyauYDFQGHZysVHyoRKv8A=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_albums@3x.png</key>
+		<key>uexScanner.bundle/ocr_flash-off@3x.png</key>
 		<data>
-		jn+NKgd0bWLU1Y5PLdeiQ4b6gh4=
+		JL0wf9HULKn7pmhCxzDKYdQ3OUI=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_flash-off.tiff</key>
+		<key>uexScanner.bundle/pick_bg.png</key>
 		<data>
-		7ZlpVoKCfXTkAzAgZ8gVtVGgTKA=
+		jvgWRhrPRDqOUfQdpWlC8swLbBo=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_flash-off@2x.png</key>
+		<key>uexScanner.bundle/up.png</key>
 		<data>
-		bMDiX/Nty7uuhZNGbVpAT5/xOSI=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_flash-off@3x.png</key>
-		<data>
-		vPYZkB5/QM7ChSR1qQecdkINz/4=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/pick_bg.png</key>
-		<data>
-		/D0073BOuW3ZP4gCCpQaT77xPOI=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/up.png</key>
-		<data>
-		15yBA2vfHl29lwuXYTI+RBDeSyg=
+		Ed1OgJmRZhqmWJQzqIgzadkXcmI=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
 		<key>embedded.mobileprovision</key>
-		<data>
-		JKbXoT98W7zj86Z2W3qbeHZe/kE=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/down.png</key>
-		<data>
-		GEL5k8WGC1CnKaVFbsHGLvJfrL4=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/line@2x.png</key>
-		<data>
-		1qLqDlxxVBw230XHq613NQQ6a4o=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocrBack.tiff</key>
-		<data>
-		+p4muxlqqt8A73862l6IWedkGX4=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocrBack@2x.png</key>
-		<data>
-		GN35ghRWUwisjOSRrzMmWQjoqlo=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocrBack@3x.png</key>
-		<data>
-		3wuS/C6wKDwagMdmR2Ez0l7lmW0=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_albums.tiff</key>
-		<data>
-		MkdM2lMJ1ruf8cYVJ+qK4qG3trw=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_albums@2x.png</key>
-		<data>
-		w0E/fzSDyNtjo3di3/WD5MjBLR0=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_albums@3x.png</key>
-		<data>
-		jn+NKgd0bWLU1Y5PLdeiQ4b6gh4=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_flash-off.tiff</key>
-		<data>
-		7ZlpVoKCfXTkAzAgZ8gVtVGgTKA=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_flash-off@2x.png</key>
-		<data>
-		bMDiX/Nty7uuhZNGbVpAT5/xOSI=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_flash-off@3x.png</key>
-		<data>
-		vPYZkB5/QM7ChSR1qQecdkINz/4=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/pick_bg.png</key>
-		<data>
-		/D0073BOuW3ZP4gCCpQaT77xPOI=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/up.png</key>
-		<data>
-		15yBA2vfHl29lwuXYTI+RBDeSyg=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			VccYRc8+LJpEK2ajGtgIir/pOpk=
+			</data>
+			<key>hash2</key>
+			<data>
+			ejCBtnGtWqhlrYI4GRjoMJxaexgdSnhjWGPR+Vc9frw=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/down.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			fj0wlv6iQYO4r2ynA1YwxNslTVk=
+			</data>
+			<key>hash2</key>
+			<data>
+			I8JbLYDW2Pba8/rZlpIMQoBosO4LG2JaUdVLQPu+3is=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/line@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			bqBmMvnvPWJ6po8fTsp0n3tG17c=
+			</data>
+			<key>hash2</key>
+			<data>
+			ePyIzifJ9nRcvgHO2vW1jJFcUKkgcRMMeIYVb50tqpM=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/ocrBack@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			k7/gn5nl1UDlFSk2rBYkjTm7F1Y=
+			</data>
+			<key>hash2</key>
+			<data>
+			jSffZM1R5CzvUu/skT64z3/PwWAFgKT4l2QNhvPCq6c=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/ocrBack@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yoAiMDD4aKbTBdRX2ALiWSQMlRE=
+			</data>
+			<key>hash2</key>
+			<data>
+			2e+AazbG+yr9wr64BbpdZzG213pEy/uAb4l98c9++F8=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/ocr_albums@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			sgSTHXqzAXSA6IwLITBr+u5pxPc=
+			</data>
+			<key>hash2</key>
+			<data>
+			rPKg3O6zhg1smT8xzaPyNshnq7zXXigAYcTkcpbErUQ=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/ocr_albums@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ApZ0a43eNEx4dekzpB18vbJ5eYI=
+			</data>
+			<key>hash2</key>
+			<data>
+			gEMH802K4dNf7vPZxSM96Mj+jlsBsiCpMI/na32uKtU=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/ocr_flash-off@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			fN565wyauYDFQGHZysVHyoRKv8A=
+			</data>
+			<key>hash2</key>
+			<data>
+			MFkjj/Idft4ayokgl56Ktj7sq+5EqvRiDkvitcVsVFQ=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/ocr_flash-off@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			JL0wf9HULKn7pmhCxzDKYdQ3OUI=
+			</data>
+			<key>hash2</key>
+			<data>
+			7xcU4QlNSORoXk1ofcWfZOKTXhG5umTG8+jrb918sHc=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/pick_bg.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jvgWRhrPRDqOUfQdpWlC8swLbBo=
+			</data>
+			<key>hash2</key>
+			<data>
+			dIRcz7O+JexmiVNF1rVt5VhEV1FWK/61k/D27ZoVsi4=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/up.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Ed1OgJmRZhqmWJQzqIgzadkXcmI=
+			</data>
+			<key>hash2</key>
+			<data>
+			n6p0FCqJvmre+zkcClkLlNnBJ0n7rmC/eoITxP1Dej8=
+			</data>
+		</dict>
 	</dict>
 	<key>rules</key>
 	<dict>
