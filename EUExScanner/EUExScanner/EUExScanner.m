@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 #import "uexAVCaptureOutputViewController.h"
 #import "uexZXingScannerViewController.h"
-#import "JSON.h"
+
 
 
 #define UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(x) (self.jsonDict[x] && [self.jsonDict[x] isKindOfClass:[NSString class]])
@@ -33,7 +33,7 @@
         //NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(1,1,0);}"];
         //[EUtility brwView:self.meBrwView evaluateScript:jsonString];
         [self.webViewEngine callbackWithFunctionKeyPath:@"uexScanner.cbOpen" arguments:ACArgsPack(@1,@1,@0)];
-        [func executeWithArguments:ACArgsPack(nil)];
+        [func executeWithArguments:ACArgsPack(@(1),@"")];
         return;
     }
     else if(authStatus ==AVAuthorizationStatusNotDetermined){
@@ -42,7 +42,7 @@
                 //NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(1,1,0);}"];
                 //[EUtility brwView:self.meBrwView evaluateScript:jsonString];
                 [self.webViewEngine callbackWithFunctionKeyPath:@"uexScanner.cbOpen" arguments:ACArgsPack(@1,@1,@0)];
-                [func executeWithArguments:ACArgsPack(nil)];
+                [func executeWithArguments:ACArgsPack(@(1),@"")];
                 return ;
             }
             else{
@@ -73,7 +73,7 @@
             //NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(0,1,'%@');}",[result JSONFragment]];
             //[EUtility brwView:self.meBrwView evaluateScript:jsonString];
             [self.webViewEngine callbackWithFunctionKeyPath:@"uexScanner.cbOpen" arguments:ACArgsPack(@0,@1,[result ac_JSONFragment])];
-            [func executeWithArguments:ACArgsPack(result)];
+            [func executeWithArguments:ACArgsPack(@(0),result)];
         }];
         
         
@@ -119,7 +119,7 @@
            // NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(0,1,'%@');}",[result JSONFragment]];
             //[EUtility brwView:self.meBrwView evaluateScript:jsonString];
             [self.webViewEngine callbackWithFunctionKeyPath:@"uexScanner.cbOpen" arguments:ACArgsPack(@0,@1,[result ac_JSONFragment])];
-            [func executeWithArguments:ACArgsPack(result)];
+            [func executeWithArguments:ACArgsPack(@(0),result)];
         }];
         
         
@@ -158,7 +158,7 @@
     if([inArguments count] < 1){
         return;
     }
-    id info = [inArguments[0] JSONValue];
+    ACArgsUnpack(NSDictionary*info) = inArguments;
     if(!info || ![info isKindOfClass:[NSDictionary class]]){
         return;
     }
