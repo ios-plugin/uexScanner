@@ -6,123 +6,236 @@
 	<dict>
 		<key>Info.plist</key>
 		<data>
-		/D4/TnKgY+y6HUjtadtovP+Gg9U=
+		5YRDsS/IePtwKXeGPTkwCsA8W+U=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		JKbXoT98W7zj86Z2W3qbeHZe/kE=
+		VccYRc8+LJpEK2ajGtgIir/pOpk=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/down.png</key>
+		<key>uexScanner.bundle/down.png</key>
 		<data>
-		GEL5k8WGC1CnKaVFbsHGLvJfrL4=
+		WP+Nj44hEqzr1moIAHXYWKt3q2k=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/line@2x.png</key>
+		<key>uexScanner.bundle/line.png</key>
 		<data>
-		1qLqDlxxVBw230XHq613NQQ6a4o=
+		n1PuBNlVMcjdED7LnfBwrWlSOJk=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocrBack.tiff</key>
+		<key>uexScanner.bundle/line@2x.png</key>
 		<data>
-		+p4muxlqqt8A73862l6IWedkGX4=
+		Bn9w9jasuckihL9YS8+aDS3LppQ=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocrBack@2x.png</key>
+		<key>uexScanner.bundle/ocrBack.png</key>
 		<data>
-		GN35ghRWUwisjOSRrzMmWQjoqlo=
+		opxEBKwyHKg273euHMcz91VcU9Q=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocrBack@3x.png</key>
+		<key>uexScanner.bundle/ocrBack@2x.png</key>
 		<data>
-		3wuS/C6wKDwagMdmR2Ez0l7lmW0=
+		rD/9dQ/KgTC9vP7Q/1SW0qbPR/M=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_albums.tiff</key>
+		<key>uexScanner.bundle/ocrBack@3x.png</key>
 		<data>
-		MkdM2lMJ1ruf8cYVJ+qK4qG3trw=
+		HwsrWR0xk4lMi02yWgcdQXD8zgA=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_albums@2x.png</key>
+		<key>uexScanner.bundle/ocr_albums.png</key>
 		<data>
-		w0E/fzSDyNtjo3di3/WD5MjBLR0=
+		1h7dcOj0xc+9VEvDuebkJ+hAQRA=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_albums@3x.png</key>
+		<key>uexScanner.bundle/ocr_albums@2x.png</key>
 		<data>
-		jn+NKgd0bWLU1Y5PLdeiQ4b6gh4=
+		U5PxI9Mct+TwXLHR2at2Xiqvg8s=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_flash-off.tiff</key>
+		<key>uexScanner.bundle/ocr_albums@3x.png</key>
 		<data>
-		7ZlpVoKCfXTkAzAgZ8gVtVGgTKA=
+		QjQzAxBCFbbcF5IAnsQ7lfMvAOY=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_flash-off@2x.png</key>
+		<key>uexScanner.bundle/ocr_flash-off.png</key>
 		<data>
-		bMDiX/Nty7uuhZNGbVpAT5/xOSI=
+		FdlTw+3J+FkHaIFCcAjE4XFk9qA=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_flash-off@3x.png</key>
+		<key>uexScanner.bundle/ocr_flash-off@2x.png</key>
 		<data>
-		vPYZkB5/QM7ChSR1qQecdkINz/4=
+		9tlTYy50EGx58/CEncwdJtE0Yu8=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/pick_bg.png</key>
+		<key>uexScanner.bundle/ocr_flash-off@3x.png</key>
 		<data>
-		/D0073BOuW3ZP4gCCpQaT77xPOI=
+		Y3a9193Y2SQBaJfoYwdbmj87eF0=
 		</data>
-		<key>uexScanner.bundle/Contents/Resources/up.png</key>
+		<key>uexScanner.bundle/pick_bg.png</key>
 		<data>
-		15yBA2vfHl29lwuXYTI+RBDeSyg=
+		KePL+0Is/fb4xQrMVTy2/yKKOcI=
+		</data>
+		<key>uexScanner.bundle/up.png</key>
+		<data>
+		wJ4xBymeeQn73JiAEo/RZdCkusU=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
 		<key>embedded.mobileprovision</key>
-		<data>
-		JKbXoT98W7zj86Z2W3qbeHZe/kE=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/down.png</key>
-		<data>
-		GEL5k8WGC1CnKaVFbsHGLvJfrL4=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/line@2x.png</key>
-		<data>
-		1qLqDlxxVBw230XHq613NQQ6a4o=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocrBack.tiff</key>
-		<data>
-		+p4muxlqqt8A73862l6IWedkGX4=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocrBack@2x.png</key>
-		<data>
-		GN35ghRWUwisjOSRrzMmWQjoqlo=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocrBack@3x.png</key>
-		<data>
-		3wuS/C6wKDwagMdmR2Ez0l7lmW0=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_albums.tiff</key>
-		<data>
-		MkdM2lMJ1ruf8cYVJ+qK4qG3trw=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_albums@2x.png</key>
-		<data>
-		w0E/fzSDyNtjo3di3/WD5MjBLR0=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_albums@3x.png</key>
-		<data>
-		jn+NKgd0bWLU1Y5PLdeiQ4b6gh4=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_flash-off.tiff</key>
-		<data>
-		7ZlpVoKCfXTkAzAgZ8gVtVGgTKA=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_flash-off@2x.png</key>
-		<data>
-		bMDiX/Nty7uuhZNGbVpAT5/xOSI=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/ocr_flash-off@3x.png</key>
-		<data>
-		vPYZkB5/QM7ChSR1qQecdkINz/4=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/pick_bg.png</key>
-		<data>
-		/D0073BOuW3ZP4gCCpQaT77xPOI=
-		</data>
-		<key>uexScanner.bundle/Contents/Resources/up.png</key>
-		<data>
-		15yBA2vfHl29lwuXYTI+RBDeSyg=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			VccYRc8+LJpEK2ajGtgIir/pOpk=
+			</data>
+			<key>hash2</key>
+			<data>
+			ejCBtnGtWqhlrYI4GRjoMJxaexgdSnhjWGPR+Vc9frw=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/down.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			WP+Nj44hEqzr1moIAHXYWKt3q2k=
+			</data>
+			<key>hash2</key>
+			<data>
+			bnCE1WxSaKcpoF/pm0hIc3n+hygu/6JGxdggrziaO/E=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/line.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			n1PuBNlVMcjdED7LnfBwrWlSOJk=
+			</data>
+			<key>hash2</key>
+			<data>
+			nwCrPVo1Se1Ed3jns9Z8go2gINhWlJknkYup5zdNXFs=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/line@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Bn9w9jasuckihL9YS8+aDS3LppQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			ilrqukwPW0R2+pRIRYy5bfP9gPE98pfoLtlGgQvl3j0=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/ocrBack.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			opxEBKwyHKg273euHMcz91VcU9Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			QlTqYMZJjhWLrQFCNDC7aQZR0GyM+Hpz5kzANNwtH0Y=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/ocrBack@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			rD/9dQ/KgTC9vP7Q/1SW0qbPR/M=
+			</data>
+			<key>hash2</key>
+			<data>
+			iAr6f9FHjo7D1g9CKLP8vvw8Sjrtyy94z08o2YkpH58=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/ocrBack@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			HwsrWR0xk4lMi02yWgcdQXD8zgA=
+			</data>
+			<key>hash2</key>
+			<data>
+			mhTC67vu3Jn51rUonG9cXqO21M4OF7JdIrIdyDXv578=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/ocr_albums.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			1h7dcOj0xc+9VEvDuebkJ+hAQRA=
+			</data>
+			<key>hash2</key>
+			<data>
+			By+TAIMBtzTci4/HMAtUjNhyVzVTs6nZQdbO2ny7K6o=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/ocr_albums@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			U5PxI9Mct+TwXLHR2at2Xiqvg8s=
+			</data>
+			<key>hash2</key>
+			<data>
+			Nj8MKZCQ+TbXDAk5QY4fFLz+yDKVJA0qW2+xQM75wZs=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/ocr_albums@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QjQzAxBCFbbcF5IAnsQ7lfMvAOY=
+			</data>
+			<key>hash2</key>
+			<data>
+			2eK87BOjRnATcT1nwjmTCAoWJRpLEtpjT0mhWdg/lig=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/ocr_flash-off.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			FdlTw+3J+FkHaIFCcAjE4XFk9qA=
+			</data>
+			<key>hash2</key>
+			<data>
+			xYTtoqHC9TgTGBsWq9TrwVbRBTstIJaPMby5ePpsEzU=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/ocr_flash-off@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9tlTYy50EGx58/CEncwdJtE0Yu8=
+			</data>
+			<key>hash2</key>
+			<data>
+			JGTkh5qMrPaQeLKowAl71R715Z0Eydcrp6qAB+sUxCA=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/ocr_flash-off@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Y3a9193Y2SQBaJfoYwdbmj87eF0=
+			</data>
+			<key>hash2</key>
+			<data>
+			fIQnZgPloPC/yk789WFXvL4ZYINzhbb0RNdBl0eBRRs=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/pick_bg.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			KePL+0Is/fb4xQrMVTy2/yKKOcI=
+			</data>
+			<key>hash2</key>
+			<data>
+			B/h3gCwI5FA3hTLSUjmx5x9+9HEqsDa18dTr7DFwk6Y=
+			</data>
+		</dict>
+		<key>uexScanner.bundle/up.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			wJ4xBymeeQn73JiAEo/RZdCkusU=
+			</data>
+			<key>hash2</key>
+			<data>
+			ry+smdVm3k0CQTmIGBeTSHp0hPpHqaWY1wodbp42xBs=
+			</data>
+		</dict>
 	</dict>
 	<key>rules</key>
 	<dict>

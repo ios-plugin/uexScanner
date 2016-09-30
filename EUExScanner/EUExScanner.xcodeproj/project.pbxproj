@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3C6F33081CE315B20079BC1C /* uexAVCaptureOutputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6F33071CE315B20079BC1C /* uexAVCaptureOutputViewController.m */; };
+		421901DC1D9E496B00DF94B0 /* ocrBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 421901D81D9E496B00DF94B0 /* ocrBack.png */; };
+		421901DD1D9E496B00DF94B0 /* ocr_flash-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 421901D91D9E496B00DF94B0 /* ocr_flash-off.png */; };
+		421901DE1D9E496B00DF94B0 /* ocr_albums.png in Resources */ = {isa = PBXBuildFile; fileRef = 421901DA1D9E496B00DF94B0 /* ocr_albums.png */; };
+		421901DF1D9E496B00DF94B0 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 421901DB1D9E496B00DF94B0 /* line.png */; };
 		4282684A1C28E59300A10A68 /* uexZXingScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 428268491C28E59300A10A68 /* uexZXingScannerViewController.m */; };
 		428268571C28E8BE00A10A68 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 4282684C1C28E8BE00A10A68 /* down.png */; };
 		428268581C28E8BE00A10A68 /* line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4282684D1C28E8BE00A10A68 /* line@2x.png */; };
@@ -57,6 +61,10 @@
 /* Begin PBXFileReference section */
 		3C6F33061CE315B10079BC1C /* uexAVCaptureOutputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexAVCaptureOutputViewController.h; sourceTree = "<group>"; };
 		3C6F33071CE315B20079BC1C /* uexAVCaptureOutputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexAVCaptureOutputViewController.m; sourceTree = "<group>"; };
+		421901D81D9E496B00DF94B0 /* ocrBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ocrBack.png; sourceTree = "<group>"; };
+		421901D91D9E496B00DF94B0 /* ocr_flash-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ocr_flash-off.png"; sourceTree = "<group>"; };
+		421901DA1D9E496B00DF94B0 /* ocr_albums.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ocr_albums.png; sourceTree = "<group>"; };
+		421901DB1D9E496B00DF94B0 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
 		4282682A1C280A3100A10A68 /* uexScanner.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uexScanner.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		428268321C280B7B00A10A68 /* EUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUtility.h; sourceTree = "<group>"; };
 		428268461C28E52800A10A68 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -123,6 +131,10 @@
 		4282682B1C280A3100A10A68 /* uexScannerBundle */ = {
 			isa = PBXGroup;
 			children = (
+				421901D81D9E496B00DF94B0 /* ocrBack.png */,
+				421901D91D9E496B00DF94B0 /* ocr_flash-off.png */,
+				421901DA1D9E496B00DF94B0 /* ocr_albums.png */,
+				421901DB1D9E496B00DF94B0 /* line.png */,
 				4282684C1C28E8BE00A10A68 /* down.png */,
 				4282684D1C28E8BE00A10A68 /* line@2x.png */,
 				4282684E1C28E8BE00A10A68 /* ocr_albums@2x.png */,
@@ -306,13 +318,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				4282685D1C28E8BE00A10A68 /* ocrBack@2x.png in Resources */,
+				421901DF1D9E496B00DF94B0 /* line.png in Resources */,
+				421901DD1D9E496B00DF94B0 /* ocr_flash-off.png in Resources */,
 				4282685F1C28E8BE00A10A68 /* pick_bg.png in Resources */,
+				421901DE1D9E496B00DF94B0 /* ocr_albums.png in Resources */,
 				428268591C28E8BE00A10A68 /* ocr_albums@2x.png in Resources */,
 				4282685B1C28E8BE00A10A68 /* ocr_flash-off@2x.png in Resources */,
 				428268581C28E8BE00A10A68 /* line@2x.png in Resources */,
 				428268571C28E8BE00A10A68 /* down.png in Resources */,
 				428268601C28E8BE00A10A68 /* up.png in Resources */,
 				4282685A1C28E8BE00A10A68 /* ocr_albums@3x.png in Resources */,
+				421901DC1D9E496B00DF94B0 /* ocrBack.png in Resources */,
 				4282685C1C28E8BE00A10A68 /* ocr_flash-off@3x.png in Resources */,
 				4282685E1C28E8BE00A10A68 /* ocrBack@3x.png in Resources */,
 			);

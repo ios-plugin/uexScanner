@@ -11,18 +11,8 @@
 		2F828F203873DB6F2B7DA295 /* CFNetWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A99AAECB80E9D5D13718B0C /* CFNetWork.framework */; };
 		3C07055D1CE4183700BC0383 /* uexAVCaptureOutputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C07055C1CE4183700BC0383 /* uexAVCaptureOutputViewController.m */; };
 		3E6E58B1A964640AE0F0041C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1844300FB9C648B4DD2725CE /* libc++.tbd */; };
-		3EF747B2AD249870B94E25BD /* uexScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0042A9EE624A761479C20111 /* uexScanner.bundle */; };
+		421902151D9E58CD00DF94B0 /* uexScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 421902141D9E58CD00DF94B0 /* uexScanner.bundle */; };
 		4282684A1C28E59300A10A68 /* uexZXingScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 428268491C28E59300A10A68 /* uexZXingScannerViewController.m */; };
-		428268571C28E8BE00A10A68 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 4282684C1C28E8BE00A10A68 /* down.png */; };
-		428268581C28E8BE00A10A68 /* line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4282684D1C28E8BE00A10A68 /* line@2x.png */; };
-		428268591C28E8BE00A10A68 /* ocr_albums@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4282684E1C28E8BE00A10A68 /* ocr_albums@2x.png */; };
-		4282685A1C28E8BE00A10A68 /* ocr_albums@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4282684F1C28E8BE00A10A68 /* ocr_albums@3x.png */; };
-		4282685B1C28E8BE00A10A68 /* ocr_flash-off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 428268501C28E8BE00A10A68 /* ocr_flash-off@2x.png */; };
-		4282685C1C28E8BE00A10A68 /* ocr_flash-off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 428268511C28E8BE00A10A68 /* ocr_flash-off@3x.png */; };
-		4282685D1C28E8BE00A10A68 /* ocrBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 428268521C28E8BE00A10A68 /* ocrBack@2x.png */; };
-		4282685E1C28E8BE00A10A68 /* ocrBack@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 428268531C28E8BE00A10A68 /* ocrBack@3x.png */; };
-		4282685F1C28E8BE00A10A68 /* pick_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 428268541C28E8BE00A10A68 /* pick_bg.png */; };
-		428268601C28E8BE00A10A68 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 428268551C28E8BE00A10A68 /* up.png */; };
 		42FE64E91C291DD200B6EF17 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FE64E81C291DD200B6EF17 /* ZXingObjC.framework */; };
 		5E2FE682BF19EBDA79C8A26C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15261B0981C143666E4E4A3A /* MapKit.framework */; };
 		60ADDB0836CBB01D194F621F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF582654DB6305FDDB59CD75 /* SystemConfiguration.framework */; };
@@ -43,39 +33,18 @@
 		FFEECB65B683643753B4AA84 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86BC0E43E67ED41EFF71C880 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		428268301C280A3A00A10A68 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F728A2481AB7FC27003FDDA4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 428268291C280A3100A10A68;
-			remoteInfo = uexScannerBundle;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		0042A9EE624A761479C20111 /* uexScanner.bundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.cfbundle; name = uexScanner.bundle; path = uexScanner/uexScanner.bundle; sourceTree = "<group>"; };
 		15261B0981C143666E4E4A3A /* MapKit.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		16309D1CFC9B4ED34D0776DA /* MobileCoreServices.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		1844300FB9C648B4DD2725CE /* libc++.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		382F8DA7DFC77C81FBE03D2A /* libz.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = archive.ar; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3C07055B1CE4183700BC0383 /* uexAVCaptureOutputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexAVCaptureOutputViewController.h; sourceTree = "<group>"; };
 		3C07055C1CE4183700BC0383 /* uexAVCaptureOutputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexAVCaptureOutputViewController.m; sourceTree = "<group>"; };
-		4282682A1C280A3100A10A68 /* uexScanner.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uexScanner.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		421902141D9E58CD00DF94B0 /* uexScanner.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = uexScanner.bundle; path = uexScanner/uexScanner.bundle; sourceTree = "<group>"; };
 		428268321C280B7B00A10A68 /* EUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUtility.h; sourceTree = "<group>"; };
 		428268461C28E52800A10A68 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		428268481C28E59300A10A68 /* uexZXingScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexZXingScannerViewController.h; sourceTree = "<group>"; };
 		428268491C28E59300A10A68 /* uexZXingScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexZXingScannerViewController.m; sourceTree = "<group>"; };
-		4282684C1C28E8BE00A10A68 /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
-		4282684D1C28E8BE00A10A68 /* line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line@2x.png"; sourceTree = "<group>"; };
-		4282684E1C28E8BE00A10A68 /* ocr_albums@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ocr_albums@2x.png"; sourceTree = "<group>"; };
-		4282684F1C28E8BE00A10A68 /* ocr_albums@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ocr_albums@3x.png"; sourceTree = "<group>"; };
-		428268501C28E8BE00A10A68 /* ocr_flash-off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ocr_flash-off@2x.png"; sourceTree = "<group>"; };
-		428268511C28E8BE00A10A68 /* ocr_flash-off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ocr_flash-off@3x.png"; sourceTree = "<group>"; };
-		428268521C28E8BE00A10A68 /* ocrBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ocrBack@2x.png"; sourceTree = "<group>"; };
-		428268531C28E8BE00A10A68 /* ocrBack@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ocrBack@3x.png"; sourceTree = "<group>"; };
-		428268541C28E8BE00A10A68 /* pick_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pick_bg.png; sourceTree = "<group>"; };
-		428268551C28E8BE00A10A68 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
 		42FE64E81C291DD200B6EF17 /* ZXingObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZXingObjC.framework; sourceTree = "<group>"; };
 		5167AFDE7276881187061DC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5A99AAECB80E9D5D13718B0C /* CFNetWork.framework */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.framework; name = CFNetWork.framework; path = System/Library/Frameworks/CFNetWork.framework; sourceTree = SDKROOT; };
@@ -110,13 +79,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		428268271C280A3100A10A68 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F728A24D1AB7FC27003FDDA4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -167,23 +129,6 @@
 			path = "IDE-Frameworks";
 			sourceTree = "<group>";
 		};
-		4282682B1C280A3100A10A68 /* uexScannerBundle */ = {
-			isa = PBXGroup;
-			children = (
-				4282684C1C28E8BE00A10A68 /* down.png */,
-				4282684D1C28E8BE00A10A68 /* line@2x.png */,
-				4282684E1C28E8BE00A10A68 /* ocr_albums@2x.png */,
-				4282684F1C28E8BE00A10A68 /* ocr_albums@3x.png */,
-				428268501C28E8BE00A10A68 /* ocr_flash-off@2x.png */,
-				428268511C28E8BE00A10A68 /* ocr_flash-off@3x.png */,
-				428268521C28E8BE00A10A68 /* ocrBack@2x.png */,
-				428268531C28E8BE00A10A68 /* ocrBack@3x.png */,
-				428268541C28E8BE00A10A68 /* pick_bg.png */,
-				428268551C28E8BE00A10A68 /* up.png */,
-			);
-			path = uexScannerBundle;
-			sourceTree = "<group>";
-		};
 		428268471C28E59300A10A68 /* sourceCode */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,12 +160,11 @@
 		F728A2471AB7FC27003FDDA4 = {
 			isa = PBXGroup;
 			children = (
+				421902141D9E58CD00DF94B0 /* uexScanner.bundle */,
 				F728A2521AB7FC27003FDDA4 /* EUExScanner */,
-				4282682B1C280A3100A10A68 /* uexScannerBundle */,
 				F728A2511AB7FC27003FDDA4 /* Products */,
 				3F065B60A85C79037103927C /* IDE-Frameworks */,
 				8A5EE5FE8FE4A2FD67C493B7 /* AppCanEngine */,
-				0042A9EE624A761479C20111 /* uexScanner.bundle */,
 			);
 			sourceTree = "<group>";
 		};
@@ -228,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				F728A2501AB7FC27003FDDA4 /* uexScanner.framework */,
-				4282682A1C280A3100A10A68 /* uexScanner.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -289,23 +232,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		428268291C280A3100A10A68 /* uexScannerBundle */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4282682D1C280A3100A10A68 /* Build configuration list for PBXNativeTarget "uexScannerBundle" */;
-			buildPhases = (
-				428268261C280A3100A10A68 /* Sources */,
-				428268271C280A3100A10A68 /* Frameworks */,
-				428268281C280A3100A10A68 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = uexScannerBundle;
-			productName = uexScannerBundle;
-			productReference = 4282682A1C280A3100A10A68 /* uexScanner.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
 		F728A24F1AB7FC27003FDDA4 /* EUExScanner */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F728A2641AB7FC27003FDDA4 /* Build configuration list for PBXNativeTarget "EUExScanner" */;
@@ -317,7 +243,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				428268311C280A3A00A10A68 /* PBXTargetDependency */,
 			);
 			name = EUExScanner;
 			productName = EUExScanner;
@@ -333,9 +258,6 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = AppCan.can;
 				TargetAttributes = {
-					428268291C280A3100A10A68 = {
-						CreatedOnToolsVersion = 7.2;
-					};
 					F728A24F1AB7FC27003FDDA4 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
@@ -354,47 +276,22 @@
 			projectRoot = "";
 			targets = (
 				F728A24F1AB7FC27003FDDA4 /* EUExScanner */,
-				428268291C280A3100A10A68 /* uexScannerBundle */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		428268281C280A3100A10A68 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4282685D1C28E8BE00A10A68 /* ocrBack@2x.png in Resources */,
-				4282685F1C28E8BE00A10A68 /* pick_bg.png in Resources */,
-				428268591C28E8BE00A10A68 /* ocr_albums@2x.png in Resources */,
-				4282685B1C28E8BE00A10A68 /* ocr_flash-off@2x.png in Resources */,
-				428268581C28E8BE00A10A68 /* line@2x.png in Resources */,
-				428268571C28E8BE00A10A68 /* down.png in Resources */,
-				428268601C28E8BE00A10A68 /* up.png in Resources */,
-				4282685A1C28E8BE00A10A68 /* ocr_albums@3x.png in Resources */,
-				4282685C1C28E8BE00A10A68 /* ocr_flash-off@3x.png in Resources */,
-				4282685E1C28E8BE00A10A68 /* ocrBack@3x.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		81EACC21187CC8E3F6C62875 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EF747B2AD249870B94E25BD /* uexScanner.bundle in Resources */,
+				421902151D9E58CD00DF94B0 /* uexScanner.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		428268261C280A3100A10A68 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F728A24C1AB7FC27003FDDA4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -407,57 +304,7 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		428268311C280A3A00A10A68 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 428268291C280A3100A10A68 /* uexScannerBundle */;
-			targetProxy = 428268301C280A3A00A10A68 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		4282682E1C280A3100A10A68 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				COMBINE_HIDPI_IMAGES = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_TESTABILITY = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
-				INFOPLIST_FILE = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zywx.uexScannerBundle;
-				PRODUCT_MODULE_NAME = uexScanner;
-				PRODUCT_NAME = uexScanner;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		4282682F1C280A3100A10A68 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				COMBINE_HIDPI_IMAGES = NO;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
-				INFOPLIST_FILE = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zywx.uexScannerBundle;
-				PRODUCT_MODULE_NAME = uexScanner;
-				PRODUCT_NAME = uexScanner;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 		F728A2621AB7FC27003FDDA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -615,15 +462,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4282682D1C280A3100A10A68 /* Build configuration list for PBXNativeTarget "uexScannerBundle" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4282682E1C280A3100A10A68 /* Debug */,
-				4282682F1C280A3100A10A68 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		F728A24B1AB7FC27003FDDA4 /* Build configuration list for PBXProject "EUExScannerIDE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
