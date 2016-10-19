@@ -165,7 +165,34 @@
     self.jsonDict=info;
 }
 
-
+-(NSString*)recognizeFromImage:(NSMutableArray *)inArguments{
+    ACArgsUnpack(NSString *imagePath)=inArguments;
+    if (!imagePath) {
+        return nil;
+    }
+    UIImage *image = nil;
+    if ([imagePath hasPrefix:@"https"] || [imagePath hasPrefix:@"http"]) {
+        NSURL *url = [NSURL URLWithString:imagePath];
+        image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+    } else {
+       image = [UIImage imageWithContentsOfFile:[self absPath:imagePath]];
+    }
+    
+    CIDetector*detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{ CIDetectorAccuracy : CIDetectorAccuracyHigh }];
+    NSArray *features = [detector featuresInImage:[CIImage imageWithCGImage:image.CGImage]];
+    if (!features || features.count<1) {
+        return nil;
+    }
+    NSMutableArray *resultArr = [NSMutableArray array];
+    for (int index = 0; index < [features count]; index ++) {
+        CIQRCodeFeature *feature = [features objectAtIndex:index];
+        NSString *scannedResult = feature.messageString;
+        NSLog(@"result:%@",scannedResult);
+        [resultArr addObject:scannedResult];
+        
+    }
+    return [resultArr copy][0];
+}
 
 
 - (UIImage *)getImageByPath:(NSString *)path {
