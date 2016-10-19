@@ -156,7 +156,39 @@
 }
 
 
-
+-(NSString*)recognizeFromImage:(NSMutableArray *)inArguments{
+    if([inArguments count] < 1){
+        return nil;
+    }
+    NSString* imagePath = nil;
+    if(inArguments[0] && [inArguments[0] isKindOfClass:[NSString class]]){
+        imagePath = inArguments[0];
+    }else{
+        return nil;
+    }
+    UIImage *image = nil;
+    if ([imagePath hasPrefix:@"https"] || [imagePath hasPrefix:@"http"]) {
+        NSURL *url = [NSURL URLWithString:imagePath];
+        image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+    } else {
+        image = [UIImage imageWithContentsOfFile:[self absPath:imagePath]];
+    }
+    
+    CIDetector*detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{ CIDetectorAccuracy : CIDetectorAccuracyHigh }];
+    NSArray *features = [detector featuresInImage:[CIImage imageWithCGImage:image.CGImage]];
+    if (!features || features.count<1) {
+        return nil;
+    }
+    NSMutableArray *resultArr = [NSMutableArray array];
+    for (int index = 0; index < [features count]; index ++) {
+        CIQRCodeFeature *feature = [features objectAtIndex:index];
+        NSString *scannedResult = feature.messageString;
+        NSLog(@"result:%@",scannedResult);
+        [resultArr addObject:scannedResult];
+        
+    }
+    return [resultArr copy][0];
+}
 
 - (UIImage *)getImageByPath:(NSString *)path {
     NSString *imagePath =[self absPath:path];

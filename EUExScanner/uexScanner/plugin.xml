@@ -3,6 +3,7 @@
     <plugin name="uexScanner">
         <method name="open"></method>
         <method name="setJsonData"></method>
+        <method name="recognizeFromImage" sync="true"></method>
 	</plugin>
 </uexplugins>
 
