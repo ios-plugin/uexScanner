@@ -41,7 +41,11 @@
                 return ;
             }
             else{
-                [self openCamera];
+                //适配IOS 10不在主线程会挂掉的问题
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self openCamera];
+                });
+                
             }
         }];
     }
