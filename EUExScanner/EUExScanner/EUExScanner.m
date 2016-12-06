@@ -111,7 +111,10 @@
             }
             
             NSMutableDictionary *result=[NSMutableDictionary dictionary];
-            [result setValue:scanResult forKey:@"code"];
+            
+            NSString* resultString =  [scanResult stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+            
+            [result setValue:resultString forKey:@"code"];
             [result setValue:codeType forKey:@"type"];
             NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(0,1,'%@');}",[result JSONFragment]];
             [EUtility brwView:self.meBrwView evaluateScript:jsonString];
