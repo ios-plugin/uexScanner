@@ -6,7 +6,8 @@
 //  Copyright (c) 2015年 AppCan.can. All rights reserved.
 //
 
-#import "EUExBase.h"
+
+#import <AppCanKit/AppCanKit.h>
 @interface EUExScanner : EUExBase
 
 

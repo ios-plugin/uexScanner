@@ -23,6 +23,7 @@
 
 #import "uexZXingScannerViewController.h"
 #import <ZXingObjC/ZXingObjC.h>
+#import <AppCanKit/AppCanKit.h>
 @interface uexZXingScannerViewController()<ZXCaptureDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic,strong)ZXCapture *ZXingCapture;
 
@@ -329,7 +330,7 @@ static CGFloat kUexScannerPromptMaxWidth                    = 300;
 
 
 - (UIImage *)bundleImageForName:(NSString *)fileName{
-    NSBundle *resBundle=[EUtility bundleForPlugin:@"uexScanner"];
+    NSBundle *resBundle=[NSBundle ac_bundleForPlugin:@"uexScanner"];
     
     return [UIImage imageWithContentsOfFile:[[resBundle resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",fileName]]];
 }

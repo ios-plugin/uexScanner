@@ -1,17 +1,8 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <uexplugins>
-  <plugin uexName="uexScanner" version="3.1.11" build="11">
-    <info>11: 新增recognizeFromImage方法</info>
-    <build>10: 补充@1x的图片资源,修复在非retina屏上显示异常的问题</build>
-    <build>9: IDE证书更新</build>
-    <build>8: 解决相机权限受限APP闪退的问题</build>
-    <build>7: 修改为ios7.0以上调用系统库扫描</build>
-    <build>6: 修复横屏扫描时图像显示异常的BUG</build>
-    <build>5: 添加可选参数charset，支持GBK编码的二维码</build>
-    <build>4: 重构:改用ZXing识别二维码;添加IDE支持</build>
-    <build>3: 修改二维码扫描UI图片</build>
-    <build>2: 修改资源图片</build>
-    <build>1: UI适配iOS7以下系统</build>
-    <build>0: 二维码插件UI优化</build>
-  </plugin>
+    <plugin
+         uexName="uexScanner" version="4.0.1" build="1">
+        <info>1: 修复首次启动用户确认相机权限时可能闪退的问题</info>
+        <build>0:二维码插件</build>
+    </plugin>
 </uexplugins>

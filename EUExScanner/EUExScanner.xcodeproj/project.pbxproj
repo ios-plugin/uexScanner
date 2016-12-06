@@ -12,6 +12,7 @@
 		421901DD1D9E496B00DF94B0 /* ocr_flash-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 421901D91D9E496B00DF94B0 /* ocr_flash-off.png */; };
 		421901DE1D9E496B00DF94B0 /* ocr_albums.png in Resources */ = {isa = PBXBuildFile; fileRef = 421901DA1D9E496B00DF94B0 /* ocr_albums.png */; };
 		421901DF1D9E496B00DF94B0 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 421901DB1D9E496B00DF94B0 /* line.png */; };
+		4278908C1DEFF6A200B8476D /* AppCanKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4278908B1DEFF6A200B8476D /* AppCanKit.framework */; };
 		4282684A1C28E59300A10A68 /* uexZXingScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 428268491C28E59300A10A68 /* uexZXingScannerViewController.m */; };
 		428268571C28E8BE00A10A68 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 4282684C1C28E8BE00A10A68 /* down.png */; };
 		428268581C28E8BE00A10A68 /* line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4282684D1C28E8BE00A10A68 /* line@2x.png */; };
@@ -65,8 +66,8 @@
 		421901D91D9E496B00DF94B0 /* ocr_flash-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ocr_flash-off.png"; sourceTree = "<group>"; };
 		421901DA1D9E496B00DF94B0 /* ocr_albums.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ocr_albums.png; sourceTree = "<group>"; };
 		421901DB1D9E496B00DF94B0 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
+		4278908B1DEFF6A200B8476D /* AppCanKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCanKit.framework; sourceTree = "<group>"; };
 		4282682A1C280A3100A10A68 /* uexScanner.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uexScanner.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		428268321C280B7B00A10A68 /* EUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUtility.h; sourceTree = "<group>"; };
 		428268461C28E52800A10A68 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		428268481C28E59300A10A68 /* uexZXingScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexZXingScannerViewController.h; sourceTree = "<group>"; };
 		428268491C28E59300A10A68 /* uexZXingScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexZXingScannerViewController.m; sourceTree = "<group>"; };
@@ -82,8 +83,6 @@
 		428268551C28E8BE00A10A68 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
 		42FE64E81C291DD200B6EF17 /* ZXingObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZXingObjC.framework; sourceTree = "<group>"; };
 		F728A2501AB7FC27003FDDA4 /* libuexScanner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libuexScanner.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F728A2A81AB7FF2E003FDDA4 /* EUExBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBase.h; sourceTree = "<group>"; };
-		F728A2A91AB7FF2E003FDDA4 /* EUExBaseDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBaseDefine.h; sourceTree = "<group>"; };
 		F728A2AC1AB80084003FDDA4 /* EUExScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExScanner.h; sourceTree = "<group>"; };
 		F728A2AD1AB80084003FDDA4 /* EUExScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EUExScanner.m; sourceTree = "<group>"; };
 		F728A2B11AB801CC003FDDA4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -115,6 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F728A2BE1AB80210003FDDA4 /* Foundation.framework in Frameworks */,
+				4278908C1DEFF6A200B8476D /* AppCanKit.framework in Frameworks */,
 				F728A2BC1AB8020A003FDDA4 /* UIKit.framework in Frameworks */,
 				F728A2BA1AB801EE003FDDA4 /* CoreGraphics.framework in Frameworks */,
 				F728A2B81AB801E8003FDDA4 /* QuartzCore.framework in Frameworks */,
@@ -189,26 +189,16 @@
 		F728A2521AB7FC27003FDDA4 /* EUExScanner */ = {
 			isa = PBXGroup;
 			children = (
+				4278908B1DEFF6A200B8476D /* AppCanKit.framework */,
 				42FE64DE1C29187100B6EF17 /* libs */,
 				428268471C28E59300A10A68 /* sourceCode */,
 				F728A2BF1AB80265003FDDA4 /* Frameworks */,
-				F728A2A71AB7FF2E003FDDA4 /* engineHeader */,
 				F7DF68771AB9626500484237 /* JSON */,
 				F728A2AC1AB80084003FDDA4 /* EUExScanner.h */,
 				F728A2AD1AB80084003FDDA4 /* EUExScanner.m */,
 				428268461C28E52800A10A68 /* PrefixHeader.pch */,
 			);
 			path = EUExScanner;
-			sourceTree = "<group>";
-		};
-		F728A2A71AB7FF2E003FDDA4 /* engineHeader */ = {
-			isa = PBXGroup;
-			children = (
-				428268321C280B7B00A10A68 /* EUtility.h */,
-				F728A2A81AB7FF2E003FDDA4 /* EUExBase.h */,
-				F728A2A91AB7FF2E003FDDA4 /* EUExBaseDefine.h */,
-			);
-			path = engineHeader;
 			sourceTree = "<group>";
 		};
 		F728A2BF1AB80265003FDDA4 /* Frameworks */ = {
@@ -490,6 +480,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EUExScanner/libs",
+					"$(PROJECT_DIR)/EUExScanner",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = $SRCROOT/EUExScanner/PrefixHeader.pch;
@@ -510,6 +501,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EUExScanner/libs",
+					"$(PROJECT_DIR)/EUExScanner",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = $SRCROOT/EUExScanner/PrefixHeader.pch;

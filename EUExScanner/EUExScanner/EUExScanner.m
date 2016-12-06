@@ -7,10 +7,11 @@
 //
 
 #import "EUExScanner.h"
+
 #import <Foundation/Foundation.h>
 #import "uexAVCaptureOutputViewController.h"
 #import "uexZXingScannerViewController.h"
-#import "JSON.h"
+
 
 
 #define UEX_SCANNER_AVAILABLE_STRING_FOR_KEY(x) (self.jsonDict[x] && [self.jsonDict[x] isKindOfClass:[NSString class]])
@@ -25,33 +26,46 @@
 
 
 - (void)open:(NSMutableArray *)inArguments {
+
+    ACJSFunctionRef *func = JSFunctionArg(inArguments.lastObject);
+
     NSString *mediaType = AVMediaTypeVideo;
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
-    if(authStatus ==AVAuthorizationStatusRestricted ||  authStatus==AVAuthorizationStatusDenied){
-        //NSLog(@"相机权限受限");
-        NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(1,1,0);}"];
-        [EUtility brwView:self.meBrwView evaluateScript:jsonString];
-        return;
-    }
-    else if(authStatus ==AVAuthorizationStatusNotDetermined){
-        [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted) {
-            if(granted==NO){
-                NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(1,1,0);}"];
-                [EUtility brwView:self.meBrwView evaluateScript:jsonString];
-                return ;
-            }
-            else{
-                [self openCamera];
-            }
-        }];
-    }
-    else{
-        [self openCamera];
+    
+    
+    switch (authStatus) {
+        case AVAuthorizationStatusRestricted:
+        case AVAuthorizationStatusDenied:{
+            ACLogInfo(@"uexScanner: 相机权限受限");
+            
+            [self.webViewEngine callbackWithFunctionKeyPath:@"uexScanner.cbOpen" arguments:ACArgsPack(@1,@1,@0)];
+            [func executeWithArguments:ACArgsPack(@(1),@"")];
+            break;
+        }
+        case AVAuthorizationStatusNotDetermined:{
+            [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:^(BOOL granted) {
+                if(granted==NO){
+                    [self.webViewEngine callbackWithFunctionKeyPath:@"uexScanner.cbOpen" arguments:ACArgsPack(@1,@1,@0)];
+                    [func executeWithArguments:ACArgsPack(@(1),@"")];
+                    
+                }else{
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self openCameraWithFunction:func];
+                    });
+                }
+            }];
+            break;
+        }
+        case AVAuthorizationStatusAuthorized:{
+            [self openCameraWithFunction:func];
+            break;
+        }
     }
 
-    
 }
--(void)openCamera{
+
+-(void)openCameraWithFunction:(ACJSFunctionRef *)func{
+
     
     UIStatusBarStyle initialStatusBarStyle =[UIApplication sharedApplication].statusBarStyle;
     float phoneVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
@@ -65,8 +79,10 @@
             NSMutableDictionary *result=[NSMutableDictionary dictionary];
             [result setValue:scanResult forKey:@"code"];
             [result setValue:codeType forKey:@"type"];
-            NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(0,1,'%@');}",[result JSONFragment]];
-            [EUtility brwView:self.meBrwView evaluateScript:jsonString];
+
+
+            [self.webViewEngine callbackWithFunctionKeyPath:@"uexScanner.cbOpen" arguments:ACArgsPack(@0,@1,[result ac_JSONFragment])];
+            [func executeWithArguments:ACArgsPack(@(0),result)];
         }];
         
         
@@ -95,9 +111,8 @@
             scanner.frequency=1.5;
         }
         
-        
-        [EUtility brwView:self.meBrwView presentModalViewController:scanner animated:YES];
-        
+
+         [[self.webViewEngine viewController] presentViewController:scanner animated:YES completion:nil];
     }
     else{
         uexAVCaptureOutputViewController *scanner=[[uexAVCaptureOutputViewController alloc]initWithCompletion:^(NSString *scanResult, NSString *codeType, BOOL isCancelled) {
@@ -109,8 +124,10 @@
             NSMutableDictionary *result=[NSMutableDictionary dictionary];
             [result setValue:scanResult forKey:@"code"];
             [result setValue:codeType forKey:@"type"];
-            NSString *jsonString=[NSString stringWithFormat:@"if(uexScanner.cbOpen!=null){uexScanner.cbOpen(0,1,'%@');}",[result JSONFragment]];
-            [EUtility brwView:self.meBrwView evaluateScript:jsonString];
+
+            [self.webViewEngine callbackWithFunctionKeyPath:@"uexScanner.cbOpen" arguments:ACArgsPack(@0,@1,[result ac_JSONFragment])];
+            [func executeWithArguments:ACArgsPack(@(0),result)];
+
         }];
         
         
@@ -133,39 +150,26 @@
             }
         }
         if([self.jsonDict objectForKey:@"frequency"]){
-            scanner.frequency=[[self.jsonDict objectForKey:@"frequency"] floatValue];
+            scanner.frequency = [[self.jsonDict objectForKey:@"frequency"] floatValue];
         }
         else{
-            scanner.frequency=1.5;
+            scanner.frequency = 1.5;
         }
         
-        
-        [EUtility brwView:self.meBrwView presentModalViewController:scanner animated:YES];
+        [[self.webViewEngine viewController] presentViewController:scanner animated:YES completion:nil];
+
     }
 }
 
 - (void)setJsonData:(NSMutableArray *)inArguments{
-    if([inArguments count] < 1){
-        return;
-    }
-    id info = [inArguments[0] JSONValue];
-    if(!info || ![info isKindOfClass:[NSDictionary class]]){
-        return;
-    }
+    ACArgsUnpack(NSDictionary*info) = inArguments;
     self.jsonDict=info;
 }
 
 
--(NSString*)recognizeFromImage:(NSMutableArray *)inArguments{
-    if([inArguments count] < 1){
-        return nil;
-    }
-    NSString* imagePath = nil;
-    if(inArguments[0] && [inArguments[0] isKindOfClass:[NSString class]]){
-        imagePath = inArguments[0];
-    }else{
-        return nil;
-    }
+- (NSString *)recognizeFromImage:(NSMutableArray *)inArguments{
+    ACArgsUnpack(NSString *imagePath) = inArguments;
+
     UIImage *image = nil;
     if ([imagePath hasPrefix:@"https"] || [imagePath hasPrefix:@"http"]) {
         NSURL *url = [NSURL URLWithString:imagePath];
@@ -173,8 +177,10 @@
     } else {
         image = [UIImage imageWithContentsOfFile:[self absPath:imagePath]];
     }
-    
-    CIDetector*detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{ CIDetectorAccuracy : CIDetectorAccuracyHigh }];
+    if (!image) {
+        return nil;
+    }
+    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{ CIDetectorAccuracy : CIDetectorAccuracyHigh }];
     NSArray *features = [detector featuresInImage:[CIImage imageWithCGImage:image.CGImage]];
     if (!features || features.count<1) {
         return nil;
@@ -183,11 +189,10 @@
     for (int index = 0; index < [features count]; index ++) {
         CIQRCodeFeature *feature = [features objectAtIndex:index];
         NSString *scannedResult = feature.messageString;
-        NSLog(@"result:%@",scannedResult);
         [resultArr addObject:scannedResult];
         
     }
-    return [resultArr copy][0];
+    return resultArr.firstObject;
 }
 
 - (UIImage *)getImageByPath:(NSString *)path {
