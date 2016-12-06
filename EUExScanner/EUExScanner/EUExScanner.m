@@ -31,8 +31,6 @@
 
     NSString *mediaType = AVMediaTypeVideo;
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
-    
-    
     switch (authStatus) {
         case AVAuthorizationStatusRestricted:
         case AVAuthorizationStatusDenied:{
@@ -60,6 +58,7 @@
             [self openCameraWithFunction:func];
             break;
         }
+
     }
 
 }
