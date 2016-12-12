@@ -121,7 +121,9 @@
             }
             
             NSMutableDictionary *result=[NSMutableDictionary dictionary];
-            [result setValue:scanResult forKey:@"code"];
+            
+            NSString* resultString =  [scanResult stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+            [result setValue:resultString forKey:@"code"];
             [result setValue:codeType forKey:@"type"];
 
             [self.webViewEngine callbackWithFunctionKeyPath:@"uexScanner.cbOpen" arguments:ACArgsPack(@0,@1,[result ac_JSONFragment])];
