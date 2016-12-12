@@ -8,6 +8,7 @@
 
 
 #import <AppCanKit/AppCanKit.h>
+
 @interface EUExScanner : EUExBase
 
 
